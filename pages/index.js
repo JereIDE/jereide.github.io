@@ -1,7 +1,7 @@
-import getMinimumSystemVersion from '@/utils/getMinimumSystemVersion';
-import { APPCAST_URL, parseAppcast } from '@/utils/appcast';
+import getMinimumSystemVersion from "@/utils/getMinimumSystemVersion";
+import { APPCAST_URL, parseAppcast } from "@/utils/appcast";
 
-export { default } from '@/components/pages/home';
+export { default } from "@/components/pages/home";
 
 export async function getStaticProps() {
   let latest = null;
@@ -19,14 +19,15 @@ export async function getStaticProps() {
   if (displayShortVersion && !/^v/i.test(displayShortVersion)) {
     displayShortVersion = `v${displayShortVersion}`;
   }
-  const versionLabel = displayShortVersion && build
-    ? `${displayShortVersion} (${build})`
-    : displayShortVersion ?? (build ? String(build) : null);
+  const versionLabel =
+    displayShortVersion && build
+      ? `${displayShortVersion} (${build})`
+      : (displayShortVersion ?? (build ? String(build) : null));
 
   return {
     props: {
       versionNumber: versionLabel,
-      minimumSystemVersion: latest?.minimumSystemVersion ?? getMinimumSystemVersion(latest?.title ?? ''),
+      minimumSystemVersion: "12",
     },
   };
 }

@@ -35,18 +35,18 @@ const HeroSection = ({ versionNumber, minimumSystemVersion }) => {
                     />
                   </ProductIconWrap>
                   <Typography variant="headline-elevated">
-                    The <HighlightedText>elegant</HighlightedText> way to play
-                    Windows® games on Mac.
+                    A fast and simple editor.
+                    <p></p>
+                    Open Source.{" "}
+                    <HighlightedText>Free Forever.</HighlightedText>
                   </Typography>
                   <Typography
                     variant="intro-elevated"
                     color="tertiary"
                     gutterBottom
                   >
-                    An open-source macOS game launcher with the ability to play
-                    Windows® games through a custom implementation of
-                    Apple&apos;s Game Porting Toolkit, with support for multiple
-                    storefronts.
+                    JereIDE as an open-source, fast editor built in Rust with
+                    built-in LSP features and weekly, sometimes daily, releases.
                   </Typography>
                   <Button size="lg" onClick={() => router.push("/download")}>
                     Download
