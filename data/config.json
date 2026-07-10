@@ -2,7 +2,7 @@
   "host": "https://getmythic.app",
   "title": "JereIDE",
   "description": "JereIDE app website.",
-  "repositoryUrl": "https://github.com/MythicApp/Mythic",
+  "repositoryUrl": "https://github.com/jereide/jereide",
   "pages": {
     "/": {
       "title": "Overview",
@@ -16,27 +16,26 @@
       "title": "Download",
       "description": "Download JereIDE, the best way to play Windows® games on Mac."
     },
-    "https://github.com/MythicApp/Mythic": {
+    "https://github.com/jereide/jereide": {
       "title": "GitHub",
       "description": "JereIDE GitHub repository"
     },
-    "https://github.com/sponsors/MythicApp": {
+    "https://github.com/sponsors/jereide": {
       "title": "Sponsor",
       "description": "JereIDE GitHub Sponsors page"
-    }
-  },
+    },
   "links": {
-    "githubOrg": "https://github.com/MythicApp",
-    "githubRepo": "https://github.com/MythicApp/Mythic",
-    "githubProject": "https://github.com/orgs/MythicApp/projects/2",
-    "githubSponsor": "https://github.com/sponsors/MythicApp",
+    "githubOrg": "https://github.com/jereide",
+    "githubRepo": "https://github.com/jereide/jereide",
+    "githubProject": "https://github.com/orgs/jereide/projects/2",
+    "githubSponsor": "https://github.com/sponsors/jereide",
     "discord": "https://discord.gg/rDMcVx3B9b",
-    "license": "https://github.com/MythicApp/Mythic/blob/main/LICENSE.md"
+    "license": "https://github.com/jereide/jereide/blob/main/LICENSE.md"
   },
   "navigation": [
     "/",
     "/releases",
-    "https://github.com/MythicApp/Mythic",
-    "https://github.com/sponsors/MythicApp"
+    "https://github.com/jereide/jereide",
+    "https://github.com/sponsors/jereide"
   ]
 }

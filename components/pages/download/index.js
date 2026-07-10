@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { Column, Row, Section, Stack } from '@/components/common/layout';
-import Typography from '@/components/common/Typography';
-import Image from 'next/image';
-import Tile from '@/components/common/Tile';
-import { mediaQueries } from '@/styles/breakpoints';
-import config from '@/data/config';
+import React from "react";
+import styled from "styled-components";
+import { Column, Row, Section, Stack } from "@/components/common/layout";
+import Typography from "@/components/common/Typography";
+import Image from "next/image";
+import Tile from "@/components/common/Tile";
+import { mediaQueries } from "@/styles/breakpoints";
+import config from "@/data/config";
 
 const StepTile = styled(Tile)`
   overflow: hidden;
@@ -55,102 +55,56 @@ const Download = styled.iframe`
   opacity: 0;
 `;
 
-const APPCAST_URL = 'https://getmythic.app/appcast.xml';
+/*
+ * Auto-download via appcast (disabled):
+ *
+ * const APPCAST_URL = '...';
+ * function parseAppcast(text) { ... }
+ *
+ * export default function DownloadPage({ downloadUrl }) {
+ *   useEffect(() => {
+ *     if (downloadUrl) return;
+ *     // ... fetches appcast, redirects to enclosure URL
+ *   }, [downloadUrl]);
+ *   return (
+ *     <>
+ *       {downloadUrl && <Download src={downloadUrl} />}
+ *       <Section ...>
+ *         ...
+ *         <Typography variant="headline-elevated">
+ *           Thanks for downloading JereIDE!
+ *         </Typography>
+ *         ... (auto-download trigger)
+ *       </Section>
+ *     </>
+ *   );
+ * }
+ */
 
-function parseAppcast(text) {
-  if (typeof text !== 'string' || !text) return null;
-
-  const itemMatches = Array.from(text.matchAll(/<item[\s\S]*?<\/item>/g));
-  const releases = itemMatches
-    .map((m) => m[0])
-    .map((snippet) => {
-      const title = (snippet.match(/<title>([^<]+)<\/title>/) || [])[1] ?? null;
-      const versionTag =
-        (snippet.match(/<sparkle:version>([^<]+)<\/sparkle:version>/) || [])[1] ??
-        (snippet.match(/sparkle:version="([^"]+)"/) || [])[1] ?? null;
-      const enclosure = (snippet.match(/<enclosure[^>]*url="([^"]+)"/) || [])[1] ?? null;
-
-      return {
-        title,
-        versionNumber: versionTag ? parseInt(versionTag, 10) : null,
-        enclosure,
-      };
-    })
-    .filter((r) => r.title && r.versionNumber && r.enclosure)
-    .sort((a, b) => b.versionNumber - a.versionNumber);
-
-  return releases[0] ?? null;
-}
-
-export default function DownloadPage({ downloadUrl }) {
-  useEffect(() => {
-    if (downloadUrl) {
-      return;
-    }
-
-    let cancelled = false;
-
-    const start = async () => {
-      try {
-        const res = await fetch(APPCAST_URL);
-        const text = res.ok ? await res.text() : null;
-        if (cancelled) return;
-        const latest = parseAppcast(text);
-        if (latest?.enclosure) {
-          window.location.href = latest.enclosure;
-        }
-      } catch (err) {
-        // silent fallback; manual link remains visible
-      }
-    };
-
-    // mimic old 3-second countdown without UI change
-    const timer = setTimeout(start, 3000);
-
-    return () => {
-      cancelled = true;
-      clearTimeout(timer);
-    };
-  }, [downloadUrl]);
-
+export default function DownloadPage() {
   return (
-    <>
-      {downloadUrl && <Download src={downloadUrl} />}
-      <Section contained gutterTop>
-        <Row align="center" style={{ position: 'relative', zIndex: 1 }}>
-          <Column width={{ md: 12, lg: 12 }}>
-            <Stack gap={2} align="center">
-              <ProductIconWrap>
-                <Image
-                  width={128}
-                  height={128}
-                  src="/apple-touch-icon-180x180.png"
-                  alt="JereIDE product icon"
-                />
-              </ProductIconWrap>
-              <Typography variant="headline-elevated">
-                Thanks for downloading JereIDE!
-              </Typography>
-              <Typography
-                variant="intro-elevated"
-                color="tertiary"
-                gutterBottom
-              >
-                Your download will start automatically. If it didn&rsquo;t,{' '}
-                <a
-                  href={
-                    downloadUrl ?? `${config.links.githubRepo}/releases/latest`
-                  }
-                  target="_blank"
-                >
-                  download manually
-                </a>
-                .
-              </Typography>
-            </Stack>
-          </Column>
-        </Row>
-      </Section>
-    </>
+    <Section contained gutterTop>
+      <Row align="center" style={{ position: "relative", zIndex: 1 }}>
+        <Column width={{ md: 12, lg: 12 }}>
+          <Stack gap={2} align="center">
+            <ProductIconWrap>
+              <Image
+                width={128}
+                height={128}
+                src="/apple-touch-icon-180x180.png"
+                alt="JereIDE product icon"
+              />
+            </ProductIconWrap>
+            <Typography variant="headline-elevated">
+              Download JereIDE
+            </Typography>
+            <Typography variant="intro-elevated" color="tertiary" gutterBottom>
+              Head over to the <a href="/releases">releases page</a> to download
+              the latest version.
+            </Typography>
+          </Stack>
+        </Column>
+      </Row>
+    </Section>
   );
 }

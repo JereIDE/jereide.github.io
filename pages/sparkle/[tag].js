@@ -1,12 +1,11 @@
-export { default } from '@/components/pages/releases/RawRelease'
-import { fetchWithCache } from '@/utils/fetchData';
-
+export { default } from "@/components/pages/releases/RawRelease";
+import { fetchWithCache } from "@/utils/fetchData";
 
 export async function getStaticProps({ params }) {
   const { tag } = params;
   const data = await fetchWithCache(
-    'releases',
-    'https://api.github.com/repos/MythicApp/Mythic/releases'
+    "releases",
+    "https://api.github.com/repos/jereide/jereide/releases",
   );
 
   let release = null;
@@ -22,11 +21,10 @@ export async function getStaticProps({ params }) {
   };
 }
 
-
 export async function getStaticPaths() {
   const data = await fetchWithCache(
-    'releases',
-    'https://api.github.com/repos/MythicApp/Mythic/releases'
+    "releases",
+    "https://api.github.com/repos/jereide/jereide/releases",
   );
   let paths = [];
   if (Array.isArray(data)) {

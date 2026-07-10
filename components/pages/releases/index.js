@@ -17,7 +17,7 @@ const HeroIntro = styled(Typography)`
   margin-left: auto;
   margin-right: auto;
 `;
-export default function ReleasesPage({ releases, appcastDownloadMap = {} }) {
+export default function ReleasesPage({ releases }) {
   const router = useRouter();
   const hasReleases = Array.isArray(releases) && releases.length > 0;
   return (
@@ -30,8 +30,8 @@ export default function ReleasesPage({ releases, appcastDownloadMap = {} }) {
           See what&apos;s shipping in each JereIDE release.
           <br />
           For full notes, visit the{" "}
-          <a href="https://www.github.com/MythicApp/Mythic/releases">
-            Mythic Release Notes
+          <a href="https://www.github.com/jereide/jereide/releases">
+            JereIDE Release Notes
           </a>
           .
         </HeroIntro>
@@ -64,7 +64,7 @@ export default function ReleasesPage({ releases, appcastDownloadMap = {} }) {
             release={release}
             latest={i === 0}
             key={release.id}
-            downloadUrl={appcastDownloadMap?.[release.id] ?? null}
+            downloadUrl={null}
           />
         ))
       ) : (
