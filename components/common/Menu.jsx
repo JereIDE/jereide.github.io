@@ -1,16 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { usePopper } from 'react-popper';
-import { detectOverflow } from '@popperjs/core';
+import React, { useState, useRef, useEffect } from "react";
+import { usePopper } from "react-popper";
+import { detectOverflow } from "@popperjs/core";
 
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';
-import { mediaQueries } from '@/styles/breakpoints';
+import ReactDOM from "react-dom";
+import styled from "styled-components";
+import { mediaQueries } from "@/styles/breakpoints";
 
 const MenuWrap = styled.div`
   min-width: 160px;
   display: flex;
   flex-direction: column;
-  z-index: 9996;
+  z-index: 9999;
   max-height: 400px;
 
   @media ${mediaQueries.sm} {
@@ -19,7 +19,9 @@ const MenuWrap = styled.div`
     transform: none !important;
     display: block;
     /* height: calc(100% - 6rem); */
-    max-height: calc(100vh - 10rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    max-height: calc(
+      100vh - 10rem - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
     width: 100vw;
     box-sizing: border-box;
     z-index: 9999;
@@ -31,18 +33,18 @@ const MenuWrap = styled.div`
       left: 0;
       position: fixed;
       top: 0;
-      transition: opacity .4s cubic-bezier(.19,1,.22,1);
+      transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1);
       width: 100vw;
       z-index: -1;
       pointer-events: none;
     }
   }
-`
+`;
 const MenuInside = styled.div`
   overflow-y: auto;
   width: 100%;
   background: var(--background-tertiary-color);
-  border: 1px solid var(--separator-color);;
+  border: 1px solid var(--separator-color);
   padding: 5px;
   border-radius: 10px;
   align-items: stretch;
@@ -51,10 +53,12 @@ const MenuInside = styled.div`
 
   @media ${mediaQueries.sm} {
     border: 0;
-    max-height: calc(100vh - 10rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    max-height: calc(
+      100vh - 10rem - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
     border-radius: 10px 10px 0 0;
   }
-`
+`;
 
 const MenuItemWrap = styled.button`
   display: flex;
@@ -69,7 +73,8 @@ const MenuItemWrap = styled.button`
   cursor: pointer;
   text-align: left;
   box-sizing: border-box;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background: var(--fill-gray-quaternary);
   }
   &:active {
@@ -81,15 +86,15 @@ const MenuItemWrap = styled.button`
     font-size: 14px;
     &:has(svg) {
       flex-direction: row-reverse;
-      justify-content: space-between;      
+      justify-content: space-between;
     }
   }
-  
+
   svg {
     width: 16px;
     height: 16px;
   }
-`
+`;
 const MenuCancel = styled.div`
   display: none;
   position: sticky;
@@ -104,31 +109,31 @@ const MenuCancel = styled.div`
   @media ${mediaQueries.sm} {
     display: block;
   }
-`
+`;
 
 const MenuDivider = styled.hr`
   margin: 5px;
   border: 0;
-  border-top: 1px solid var(--separator-color);;
-  border-left: 1px solid var(--separator-color);;
-`
+  border-top: 1px solid var(--separator-color);
+  border-left: 1px solid var(--separator-color);
+`;
 
-const Menu = ({ trigger, children, placement = 'bottom-end', ...props }) => {
+const Menu = ({ trigger, children, placement = "bottom-end", ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [triggerEl, setTriggerEl] = useState(null);
   const [popperEl, setPopperEl] = useState(null);
 
   const { styles, attributes } = usePopper(triggerEl, popperEl, {
     placement,
-    strategy: 'fixed',
+    strategy: "fixed",
     modifiers: [
-    {
-      name: 'offset',
-      options: {
-        offset: [0, 5],
+      {
+        name: "offset",
+        options: {
+          offset: [0, 5],
+        },
       },
-    },
-  ],
+    ],
   });
 
   const menuTrigger = trigger();
@@ -138,8 +143,8 @@ const Menu = ({ trigger, children, placement = 'bottom-end', ...props }) => {
     onClick: () => setIsOpen(true),
     style: {
       ...menuTrigger.props.style,
-      ...(isOpen ? { pointerEvents: 'none' } : {})
-    }
+      ...(isOpen ? { pointerEvents: "none" } : {}),
+    },
   });
 
   useEffect(() => {
@@ -149,12 +154,12 @@ const Menu = ({ trigger, children, placement = 'bottom-end', ...props }) => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [popperEl]);
 
-  const clonedChildren = React.Children.map(children, child => {
+  const clonedChildren = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, { onCloseMenu: () => setIsOpen(false) });
     }
@@ -162,7 +167,12 @@ const Menu = ({ trigger, children, placement = 'bottom-end', ...props }) => {
   });
 
   const menu = (
-    <MenuWrap ref={setPopperEl} style={styles.popper} {...attributes.popper} {...props}>
+    <MenuWrap
+      ref={setPopperEl}
+      style={styles.popper}
+      {...attributes.popper}
+      {...props}
+    >
       <MenuInside>
         {clonedChildren}
         <MenuCancel>
@@ -171,24 +181,24 @@ const Menu = ({ trigger, children, placement = 'bottom-end', ...props }) => {
         </MenuCancel>
       </MenuInside>
     </MenuWrap>
-  )
+  );
 
   return (
     <>
       {TriggerComponent}
-      {isOpen ? (
-        ReactDOM.createPortal(menu, document.body)
-      ) : null}
+      {isOpen ? ReactDOM.createPortal(menu, document.body) : null}
     </>
-  )
-}
+  );
+};
 
 // MenuItem Component
 const MenuItem = ({ icon: Icon, onClick, children, onCloseMenu }) => (
-  <MenuItemWrap onClick={(e) => {
-    onClick?.(e);
-    onCloseMenu();
-  }}>
+  <MenuItemWrap
+    onClick={(e) => {
+      onClick?.(e);
+      onCloseMenu();
+    }}
+  >
     {Icon && <Icon />}
     {children}
   </MenuItemWrap>
