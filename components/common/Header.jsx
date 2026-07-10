@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { ExternalLink } from "react-feather";
+import { Download, ExternalLink } from "react-feather";
 import Button from "@/components/common/Button";
+import { Menu, MenuItem } from "@/components/common/Menu";
 import { Container } from "@/components/common/layout";
 import { mediaQueries } from "@/styles/breakpoints";
 import config from "@/data/config";
@@ -465,6 +466,18 @@ function Header() {
     };
   }, []);
 
+  const [latestAssets, setLatestAssets] = useState(null);
+  useEffect(() => {
+    fetch("https://api.github.com/repos/JereIDE/JereIDE/releases/latest")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && Array.isArray(data.assets)) {
+          setLatestAssets(data.assets);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   // Main nav (not sticky)
   const navContent = (
     <Wrapper className="main-nav">
@@ -513,9 +526,37 @@ function Header() {
               </MenuToggle>
             </Action>
             <Action>
-              <Button size="sm" href={`/download`}>
-                Download Alpha
-              </Button>
+              <Menu
+                trigger={() => (
+                  <Button size="sm">
+                    <Download
+                      style={{ width: 14, height: 14, verticalAlign: "middle" }}
+                    />
+                    Download
+                  </Button>
+                )}
+              >
+                {latestAssets?.length > 0 ? (
+                  latestAssets.map((asset) => (
+                    <MenuItem
+                      key={asset.id}
+                      onClick={() =>
+                        window.open(asset.browser_download_url, "_blank")
+                      }
+                    >
+                      {asset.name}
+                    </MenuItem>
+                  ))
+                ) : (
+                  <MenuItem
+                    onClick={() => {
+                      window.location.href = "/releases";
+                    }}
+                  >
+                    View releases
+                  </MenuItem>
+                )}
+              </Menu>
             </Action>
           </Actions>
         </Menu>
@@ -571,9 +612,37 @@ function Header() {
               </MenuToggle>
             </Action>
             <Action>
-              <Button size="sm" href={`/download`}>
-                Download Alpha
-              </Button>
+              <Menu
+                trigger={() => (
+                  <Button size="sm">
+                    <Download
+                      style={{ width: 14, height: 14, verticalAlign: "middle" }}
+                    />
+                    Download
+                  </Button>
+                )}
+              >
+                {latestAssets?.length > 0 ? (
+                  latestAssets.map((asset) => (
+                    <MenuItem
+                      key={asset.id}
+                      onClick={() =>
+                        window.open(asset.browser_download_url, "_blank")
+                      }
+                    >
+                      {asset.name}
+                    </MenuItem>
+                  ))
+                ) : (
+                  <MenuItem
+                    onClick={() => {
+                      window.location.href = "/releases";
+                    }}
+                  >
+                    View releases
+                  </MenuItem>
+                )}
+              </Menu>
             </Action>
           </Actions>
         </Menu>
