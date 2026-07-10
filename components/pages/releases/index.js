@@ -32,7 +32,7 @@ export default function ReleasesPage({ releases }) {
           This page is a mirror of JereIDE&apos;s GitHub releases page. It often
           lags behind. For the newest features, visit the{" "}
           <a href="https://www.github.com/JereIDE/JereIDE/releases">
-            JereIDE Release Notes
+            JereIDE GitHub Releases
           </a>
           .
         </HeroIntro>
