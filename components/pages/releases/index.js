@@ -27,9 +27,10 @@ export default function ReleasesPage({ releases }) {
           <HighlightedText>Releases</HighlightedText>
         </Typography>
         <HeroIntro variant="intro-elevated" gutter>
-          See what&apos;s shipping in each JereIDE release.
+          See what&apos;s new in JereIDE.
           <br />
-          For full notes, visit the{" "}
+          This page is a mirror of JereIDE&apos;s GitHub releases page. It often
+          lags behind. For the newest features, visit the{" "}
           <a href="https://www.github.com/JereIDE/JereIDE/releases">
             JereIDE Release Notes
           </a>
