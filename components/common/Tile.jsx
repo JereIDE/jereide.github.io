@@ -25,8 +25,8 @@ const TileWrap = styled.div`
   ${({ color }) =>
     color === "deep-purple"
       ? `
-      background: linear-gradient(to bottom right,#0D1387,#867AF6);
-    `
+    background: linear-gradient(to bottom right,#00c7d1,#008a96);
+  `
       : ``}
     ${({ color }) =>
     color === "purple"
@@ -38,8 +38,8 @@ const TileWrap = styled.div`
     ${({ color }) =>
     color === "pink"
       ? `
-      background: #dd41b7;
-      background-image: radial-gradient(circle at 0% -25%,#FF7948 0%,#FF8355 0,#DA2C84 42%,#3E13A4 110%);
+      background: #00c7d1;
+      background-image: radial-gradient(circle at 0% -25%,#FF7948 0%,#FF8355 0,#DA2C84 42%,#008a96 110%);
     `
       : ``}
 
@@ -96,8 +96,8 @@ export const TileViolator = styled.div`
   white-space: nowrap;
   display: inline-block;
   background: transparent;
-  border: 1px solid #652aff;
-  color: #652aff;
+  border: 1px solid #00c7d1;
+  color: #00c7d1;
   font-size: 17px;
   line-height: 1.1764805882;
   font-weight: 400;

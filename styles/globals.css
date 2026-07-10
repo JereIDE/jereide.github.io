@@ -148,11 +148,11 @@ html.color-scheme-transition *::after {
     --orange: #e66702;
     --tomato: #f63e54;
     --magenta: #d71bce;
-    --plum: #8d1287;
-    --grape: #6529f8;
+    --plum: #00c7d1;
+    --grape: #00c7d1;
     --indigo: #622aff;
-    --violet: #8876fe;
-    --sapphire: #3d44c3;
+    --violet: #00c7d1;
+    --sapphire: #00c7d1;
     --midnight: #1b23b3;
     --azure: #027fff;
     --moonstone: #2294b1;
@@ -203,7 +203,7 @@ html.color-scheme-transition *::after {
     --color-fill-light-blue-secondary: ;
     --color-fill-light-gray-secondary: ;
     --color-fill-orange-secondary: ;
-    --color-fill-purple-secondary: ;
+    --color-fill-teal-secondary: ;
     --color-fill-red-secondary: ;
     --color-fill-teal-secondary: ;
     --color-fill-yellow-secondary: ;
@@ -239,7 +239,7 @@ html.color-scheme-transition *::after {
     --color-fill-light-blue-secondary: #eaf3ff;
     --color-fill-light-gray-secondary: #f5f5f7;
     --color-fill-orange-secondary: #fff9f4;
-    --color-fill-purple-secondary: #fcf8ff;
+    --color-fill-teal-secondary: #fcf8ff;
     --color-fill-red-secondary: #fff2f4;
     --color-fill-teal-secondary: #faffff;
     --color-fill-yellow-secondary: #fffbf2;
@@ -255,7 +255,7 @@ html.color-scheme-transition *::after {
     --color-figure-pink: #b0b;
     --color-figure-purple: #00c7d1;
     --color-figure-red: #e30000;
-    --color-figure-teal: #007c78;
+    --color-figure-teal: #00c7d1;
     --color-figure-yellow: #9e6700;
     --color-highlight-green: #e4fee6;
     --color-highlight-red: #f8dddd;
@@ -263,9 +263,9 @@ html.color-scheme-transition *::after {
     --color-alert-deprecated: var(--color-figure-orange);
     --color-alert-deprecated-background: var(--color-fill-orange-secondary);
     --color-alert-deprecated-border: var(--color-figure-orange);
-    --color-alert-important: var(--color-figure-purple);
-    --color-alert-important-background: var(--color-fill-purple-secondary);
-    --color-alert-important-border: var(--color-figure-purple);
+    --color-alert-important: var(--color-figure-teal);
+    --color-alert-important-background: var(--color-fill-teal-secondary);
+    --color-alert-important-border: var(--color-figure-teal);
     --color-alert-warning: var(--color-figure-yellow);
     --color-alert-warning-background: var(--color-fill-yellow-secondary);
     --color-alert-warning-border: var(--color-figure-yellow);
@@ -330,7 +330,7 @@ html.color-scheme-transition *::after {
     --color-fill-light-blue-secondary: #002a51;
     --color-fill-light-gray-secondary: #323232;
     --color-fill-orange-secondary: #290d00;
-    --color-fill-purple-secondary: #190325;
+    --color-fill-teal-secondary: #190325;
     --color-fill-red-secondary: #300;
     --color-fill-teal-secondary: #002d2b;
     --color-fill-yellow-secondary: #2b2000;
@@ -364,7 +364,7 @@ html.color-scheme-transition *::after {
     --color-figure-pink: #f14bf1;
     --color-figure-purple: #00c7d1;
     --color-figure-red: #ff3037;
-    --color-figure-teal: #00c2bb;
+    --color-figure-teal: #00c7d1;
     --color-figure-yellow: #936d00;
     --color-highlight-green: #e4fee6;
     --color-highlight-red: #f8dddd;
@@ -372,9 +372,9 @@ html.color-scheme-transition *::after {
     --color-alert-deprecated: var(--color-figure-orange);
     --color-alert-deprecated-background: var(--color-fill-orange-secondary);
     --color-alert-deprecated-border: var(--color-figure-orange);
-    --color-alert-important: var(--color-figure-purple);
-    --color-alert-important-background: var(--color-fill-purple-secondary);
-    --color-alert-important-border: var(--color-figure-purple);
+    --color-alert-important: var(--color-figure-teal);
+    --color-alert-important-background: var(--color-fill-teal-secondary);
+    --color-alert-important-border: var(--color-figure-teal);
     --color-alert-warning: var(--color-figure-yellow);
     --color-alert-warning-background: var(--color-fill-yellow-secondary);
     --color-alert-warning-border: var(--color-figure-yellow);
