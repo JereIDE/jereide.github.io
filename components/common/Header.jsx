@@ -474,7 +474,7 @@ function Header() {
             <Image
               width={32}
               height={32}
-              src="/product-icon.avif"
+              src="/apple-touch-icon-180x180.png"
               alt={`${config.title} product icon`}
             />
             JereIDE
@@ -532,7 +532,7 @@ function Header() {
             <Image
               width={32}
               height={32}
-              src="/product-icon.avif"
+              src="/apple-touch-icon-180x180.png"
               alt={`${config.title} product icon`}
             />
             JereIDE

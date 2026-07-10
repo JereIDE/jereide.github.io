@@ -24,7 +24,7 @@ export default function CtaSection() {
         <Image
           width={104}
           height={104}
-          src="/product-icon.avif"
+          src="/apple-touch-icon-180x180.png"
           alt="JereIDE product icon"
         />
         <Stack align="center" gap={1}>

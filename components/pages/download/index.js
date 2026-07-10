@@ -124,7 +124,7 @@ export default function DownloadPage({ downloadUrl }) {
                 <Image
                   width={128}
                   height={128}
-                  src="/product-icon.avif"
+                  src="/apple-touch-icon-180x180.png"
                   alt="JereIDE product icon"
                 />
               </ProductIconWrap>
