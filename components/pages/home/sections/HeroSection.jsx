@@ -10,10 +10,6 @@ import {
   Menu as DropdownMenu,
   MenuItem as DropdownMenuItem,
 } from "@/components/common/Menu";
-import {
-  Menu as DropdownMenu,
-  MenuItem as DropdownMenuItem,
-} from "@/components/common/Menu";
 import Button from "@/components/common/Button";
 import HeroImage from "../HeroImage";
 import { useRouter } from "next/router";
