@@ -29,12 +29,12 @@ export default function ReleasesPage({ releases }) {
         <HeroIntro variant="intro-elevated" gutter>
           See what&apos;s new in JereIDE.
           <br />
-          This page is a mirror of JereIDE&apos;s GitHub releases page. It often
-          lags behind. For the newest features, visit the{" "}
+          This page is a mirror of JereIDE&apos;s GitHub releases page and can
+          lag behind. For the newest features, visit the{" "}
           <a href="https://www.github.com/JereIDE/JereIDE/releases">
             JereIDE GitHub Releases
           </a>
-          .
+          page.
         </HeroIntro>
         {hasReleases ? (
           <Menu
