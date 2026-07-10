@@ -6,7 +6,10 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import { Download, ExternalLink } from "react-feather";
 import Button from "@/components/common/Button";
-import { Menu, MenuItem } from "@/components/common/Menu";
+import {
+  Menu as DropdownMenu,
+  MenuItem as DropdownMenuItem,
+} from "@/components/common/Menu";
 import { Container } from "@/components/common/layout";
 import { mediaQueries } from "@/styles/breakpoints";
 import config from "@/data/config";
@@ -526,7 +529,7 @@ function Header() {
               </MenuToggle>
             </Action>
             <Action>
-              <Menu
+              <DropdownMenu
                 trigger={() => (
                   <Button size="sm">
                     <Download
@@ -538,25 +541,25 @@ function Header() {
               >
                 {latestAssets?.length > 0 ? (
                   latestAssets.map((asset) => (
-                    <MenuItem
+                    <DropdownMenuItem
                       key={asset.id}
                       onClick={() =>
                         window.open(asset.browser_download_url, "_blank")
                       }
                     >
                       {asset.name}
-                    </MenuItem>
+                    </DropdownMenuItem>
                   ))
                 ) : (
-                  <MenuItem
+                  <DropdownMenuItem
                     onClick={() => {
                       window.location.href = "/releases";
                     }}
                   >
                     View releases
-                  </MenuItem>
+                  </DropdownMenuItem>
                 )}
-              </Menu>
+              </DropdownMenu>
             </Action>
           </Actions>
         </Menu>
@@ -612,7 +615,7 @@ function Header() {
               </MenuToggle>
             </Action>
             <Action>
-              <Menu
+              <DropdownMenu
                 trigger={() => (
                   <Button size="sm">
                     <Download
@@ -624,25 +627,25 @@ function Header() {
               >
                 {latestAssets?.length > 0 ? (
                   latestAssets.map((asset) => (
-                    <MenuItem
+                    <DropdownMenuItem
                       key={asset.id}
                       onClick={() =>
                         window.open(asset.browser_download_url, "_blank")
                       }
                     >
                       {asset.name}
-                    </MenuItem>
+                    </DropdownMenuItem>
                   ))
                 ) : (
-                  <MenuItem
+                  <DropdownMenuItem
                     onClick={() => {
                       window.location.href = "/releases";
                     }}
                   >
                     View releases
-                  </MenuItem>
+                  </DropdownMenuItem>
                 )}
-              </Menu>
+              </DropdownMenu>
             </Action>
           </Actions>
         </Menu>
