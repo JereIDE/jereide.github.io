@@ -1,8 +1,8 @@
-import styled, { css, keyframes } from "styled-components"
+import styled, { css, keyframes } from "styled-components";
 import Image from "next/image";
 import HardwareLockup from "./HardwareLockup";
-import { useSite } from '@/components/common/Site';
-import { mediaQueries } from '@/styles/breakpoints';
+import { useSite } from "@/components/common/Site";
+import { mediaQueries } from "@/styles/breakpoints";
 
 const slideIn = keyframes`
   from {
@@ -35,7 +35,7 @@ const scaleBlurIn = keyframes`
 
 const SceneWrap = styled.div`
   position: relative;
-  animation: ${scaleBlurIn} 500ms 750ms cubic-bezier(0.0, 0.0, 0.2, 1);
+  animation: ${scaleBlurIn} 500ms 750ms cubic-bezier(0, 0, 0.2, 1);
   animation-fill-mode: both;
   transform-origin: bottom center;
   margin-top: 3%;
@@ -69,7 +69,7 @@ const colorFlairPiece = css`
   }
 
   border-radius: 50%;
-  background: #7541FF;
+  background: #00c7d1;
   transform-origin: bottom center;
 `;
 const ColorFlair = styled.div`
@@ -80,7 +80,7 @@ const ColorFlair = styled.div`
     content: "";
     display: block;
     ${colorFlairPiece};
-    background: #5412FF;
+    background: #008a96;
     top: 50%;
     left: auto;
     right: 50%;
@@ -98,7 +98,7 @@ const ColorFlair1 = styled(ColorFlair)`
   && {
     top: 0px;
     left: 100px;
-    animationDuration: 4000ms;
+    animationduration: 4000ms;
   }
 `;
 const ColorFlair2 = styled(ColorFlair)`
@@ -128,8 +128,11 @@ const StyledHardwareLockup = styled(HardwareLockup)`
 
 const HeroImage = ({ percentage }) => {
   const { colorScheme = "light", breakpoint } = useSite();
-  const adjustedPercentage = (Math.min(Math.max(percentage - ( breakpoint === 'xs' ? .2 : 0), 1), 1.2) - 1) * 5;
-  
+  const adjustedPercentage =
+    (Math.min(Math.max(percentage - (breakpoint === "xs" ? 0.2 : 0), 1), 1.2) -
+      1) *
+    5;
+
   const imageScale = Math.max(0.7, 1.2 - adjustedPercentage * 0.7);
   const imageTranslateY = adjustedPercentage * 6;
 
@@ -138,18 +141,27 @@ const HeroImage = ({ percentage }) => {
       <ColorFlair1 />
       <ColorFlair2 />
       <ColorFlair3 />
-      <ImageWrap style={{ transform: `translateY(${imageTranslateY}%) scale(${imageScale})` }}>
+      <ImageWrap
+        style={{
+          transform: `translateY(${imageTranslateY}%) scale(${imageScale})`,
+        }}
+      >
         <Image
           key={colorScheme}
           width={721.5}
           height={423}
           src={`/mythic-window-${colorScheme}.avif`}
           alt="Mythic screenshot"
-        /> 
+        />
       </ImageWrap>
-      <StyledHardwareLockup style={{ opacity: adjustedPercentage, transform: `translateY(-${adjustedPercentage * 15}%)  scale(${1 + (1 - adjustedPercentage) * -.1})` }} />
+      <StyledHardwareLockup
+        style={{
+          opacity: adjustedPercentage,
+          transform: `translateY(-${adjustedPercentage * 15}%)  scale(${1 + (1 - adjustedPercentage) * -0.1})`,
+        }}
+      />
     </SceneWrap>
-  )
-}
+  );
+};
 
 export default HeroImage;

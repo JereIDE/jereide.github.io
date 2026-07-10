@@ -7,7 +7,7 @@
 }
 .feature-image-hover:hover {
     transform: scale(1.045);
-    filter: drop-shadow(0 0 0.5em #652aff);
+    filter: drop-shadow(0 0 0.5em #00c7d1);
     z-index: 1;
 }
 /* Local nav outline variable for color scheme awareness */
@@ -150,7 +150,7 @@ html.color-scheme-transition *::after {
     --magenta: #d71bce;
     --plum: #00c7d1;
     --grape: #00c7d1;
-    --indigo: #622aff;
+    --indigo: #00c7d1;
     --violet: #00c7d1;
     --sapphire: #00c7d1;
     --midnight: #1b23b3;

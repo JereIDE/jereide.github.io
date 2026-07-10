@@ -39,7 +39,7 @@ const TileWrap = styled.div`
     color === "pink"
       ? `
       background: #00c7d1;
-      background-image: radial-gradient(circle at 0% -25%,#FF7948 0%,#FF8355 0,#DA2C84 42%,#008a96 110%);
+      background-image: radial-gradient(circle at 0% -25%,#FF7948 0%,#FF8355 0,#00c7d1 42%,#008a96 110%);
     `
       : ``}
 
