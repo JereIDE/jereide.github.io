@@ -1,9 +1,19 @@
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import { Parallax } from "react-parallax";
 import Typography from "@/components/common/Typography";
 import HighlightedText from "@/components/common/HighlightedText";
 import { Row, Column, Section, Stack } from "@/components/common/layout";
+import { Download } from "react-feather";
+import {
+  Menu as DropdownMenu,
+  MenuItem as DropdownMenuItem,
+} from "@/components/common/Menu";
+import {
+  Menu as DropdownMenu,
+  MenuItem as DropdownMenuItem,
+} from "@/components/common/Menu";
 import Button from "@/components/common/Button";
 import HeroImage from "../HeroImage";
 import { useRouter } from "next/router";
@@ -16,6 +26,17 @@ const ProductIconWrap = styled.div`
 
 const HeroSection = ({ versionNumber, minimumSystemVersion }) => {
   const router = useRouter();
+  const [latestAssets, setLatestAssets] = useState(null);
+  useEffect(() => {
+    fetch("https://api.github.com/repos/JereIDE/JereIDE/releases/latest")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && Array.isArray(data.assets)) {
+          setLatestAssets(data.assets);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <Parallax
@@ -48,9 +69,41 @@ const HeroSection = ({ versionNumber, minimumSystemVersion }) => {
                     JereIDE as an open-source, fast editor built in Rust with
                     built-in LSP features and weekly, sometimes daily, releases.
                   </Typography>
-                  <Button size="lg" onClick={() => router.push("/download")}>
-                    Download
-                  </Button>
+                  <DropdownMenu
+                    trigger={() => (
+                      <Button size="lg">
+                        <Download
+                          style={{
+                            width: 18,
+                            height: 18,
+                            verticalAlign: "middle",
+                          }}
+                        />
+                        Download
+                      </Button>
+                    )}
+                  >
+                    {latestAssets?.length > 0 ? (
+                      latestAssets.map((asset) => (
+                        <DropdownMenuItem
+                          key={asset.id}
+                          onClick={() =>
+                            window.open(asset.browser_download_url, "_blank")
+                          }
+                        >
+                          {asset.name}
+                        </DropdownMenuItem>
+                      ))
+                    ) : (
+                      <DropdownMenuItem
+                        onClick={() => {
+                          window.location.href = "/releases";
+                        }}
+                      >
+                        View releases
+                      </DropdownMenuItem>
+                    )}
+                  </DropdownMenu>
                   <Typography variant="body-reduced" color="tertiary">
                     {versionNumber} | macOS{" "}
                     {minimumSystemVersion

@@ -158,7 +158,7 @@ const FeaturesSection = () => {
                 What&apos;re you still waiting for?
               </Typography>
               <Typography variant="body" style={{ color: "white" }}>
-                <Link href="/download">Download JereIDE</Link> today, and join
+                <Link href="/releases">Download JereIDE</Link> today, and join
                 the revolution in gaming on macOS.
               </Typography>
             </Stack>
