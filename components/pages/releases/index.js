@@ -60,12 +60,7 @@ export default function ReleasesPage({ releases }) {
       </HeroSection>
       {hasReleases ? (
         releases.map((release, i) => (
-          <Release
-            release={release}
-            latest={i === 0}
-            key={release.id}
-            downloadUrl={null}
-          />
+          <Release release={release} latest={i === 0} key={release.id} />
         ))
       ) : (
         <Section contained gutterY={8}>

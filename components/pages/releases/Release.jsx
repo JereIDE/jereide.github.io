@@ -14,9 +14,9 @@ import IconButton from "@/components/common/IconButton";
 import { TileViolator } from "@/components/common/Tile";
 import { Menu, MenuItem, MenuDivider } from "@/components/common/Menu";
 import Markdown from "@/components/common/Markdown";
-import { Link, Mail, Share } from "react-feather";
+import { Download, Link, Mail, Share } from "react-feather";
 import FacebookSvg from "@/assets/facebook-icon.svg";
-import GithubSvg from "@/assets/github-icon.svg";
+
 import macOSVersions from "@/data/macOS-versions";
 import getMinimumSystemVersion from "@/utils/getMinimumSystemVersion";
 
@@ -77,16 +77,19 @@ const sendInEmail = (name, url) => {
   window.open(uri);
 };
 
-const Release = ({ release, latest, downloadUrl }) => {
-  const zipAsset =
-    release.assets?.find((asset) => asset.name?.endsWith(".zip")) ?? null;
-  const githubDownloadUrl = zipAsset?.browser_download_url ?? null;
-  const primaryDownloadUrl = downloadUrl ?? githubDownloadUrl;
-  const hasGithubFallback = Boolean(
-    downloadUrl && githubDownloadUrl && downloadUrl !== githubDownloadUrl,
-  );
-  const isGithubPrimary = !downloadUrl && !!githubDownloadUrl;
+function formatSize(bytes) {
+  if (!bytes) return "";
+  const units = ["B", "KB", "MB", "GB"];
+  let i = 0;
+  let size = bytes;
+  while (size >= 1024 && i < units.length - 1) {
+    size /= 1024;
+    i++;
+  }
+  return `${size.toFixed(1)} ${units[i]}`;
+}
 
+const Release = ({ release, latest }) => {
   const releaseUrl = `${release.html_url ?? ""}#${release.name}`;
 
   const versionNumber = getMinimumSystemVersion(release.body);
@@ -124,36 +127,48 @@ const Release = ({ release, latest, downloadUrl }) => {
                     distribute="space-between"
                     style={{ width: "100%" }}
                   >
-                    <Stack direction="horizontal" align="center" gap={1}>
-                      {primaryDownloadUrl ? (
-                        <Button href={primaryDownloadUrl}>
-                          {isGithubPrimary && (
-                            <GithubSvg
-                              style={{
-                                marginRight: 8,
-                                width: 18,
-                                height: 18,
-                                verticalAlign: "middle",
-                              }}
-                            />
-                          )}
-                          Download
-                        </Button>
-                      ) : null}
-                      {hasGithubFallback ? (
-                        <Button size="sm" href={githubDownloadUrl}>
-                          <GithubSvg
+                    <Menu
+                      trigger={() => (
+                        <Button>
+                          <Download
                             style={{
-                              marginRight: 6,
-                              width: 15,
-                              height: 15,
+                              width: 18,
+                              height: 18,
                               verticalAlign: "middle",
                             }}
                           />
-                          Mirror
+                          Download
                         </Button>
-                      ) : null}
-                    </Stack>
+                      )}
+                    >
+                      {release.assets?.length > 0 ? (
+                        release.assets.map((asset) => (
+                          <MenuItem
+                            key={asset.id}
+                            onClick={() => {
+                              window.open(asset.browser_download_url, "_blank");
+                            }}
+                          >
+                            {asset.name}{" "}
+                            <Typography
+                              as="span"
+                              variant="caption"
+                              color="tertiary"
+                            >
+                              ({formatSize(asset.size)})
+                            </Typography>
+                          </MenuItem>
+                        ))
+                      ) : (
+                        <MenuItem
+                          onClick={() => {
+                            window.open(release.html_url, "_blank");
+                          }}
+                        >
+                          View on GitHub
+                        </MenuItem>
+                      )}
+                    </Menu>
                     <Menu
                       trigger={() => (
                         <IconButton>
