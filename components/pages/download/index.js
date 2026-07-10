@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Column, Row, Section, Stack } from "@/components/common/layout";
 import Typography from "@/components/common/Typography";
 import Image from "next/image";
+import Link from "next/link";
 import Tile from "@/components/common/Tile";
 import { mediaQueries } from "@/styles/breakpoints";
 import config from "@/data/config";
@@ -99,8 +100,8 @@ export default function DownloadPage() {
               Download JereIDE
             </Typography>
             <Typography variant="intro-elevated" color="tertiary" gutterBottom>
-              Head over to the <a href="/releases">releases page</a> to download
-              the latest version.
+              Head over to the <Link href="/releases">releases page</Link> to
+              download the latest version.
             </Typography>
           </Stack>
         </Column>
