@@ -150,7 +150,7 @@ const HeroImage = ({ percentage }) => {
           key={colorScheme}
           width={721.5}
           height={423}
-          src={`/mythic-window-${colorScheme}.avif`}
+          src={`/mythic-window-${colorScheme}.jpg`}
           alt="Mythic screenshot"
         />
       </ImageWrap>
