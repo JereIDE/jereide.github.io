@@ -5,7 +5,7 @@ export async function getStaticProps({ params }) {
   const { tag } = params;
   const data = await fetchWithCache(
     "releases",
-    "https://api.github.com/repos/jereide/jereide/releases",
+    "https://api.github.com/repos/JereIDE/JereIDE/releases",
   );
 
   let release = null;
@@ -24,7 +24,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const data = await fetchWithCache(
     "releases",
-    "https://api.github.com/repos/jereide/jereide/releases",
+    "https://api.github.com/repos/JereIDE/JereIDE/releases",
   );
   let paths = [];
   if (Array.isArray(data)) {

@@ -30,7 +30,7 @@ export default function ReleasesPage({ releases }) {
           See what&apos;s shipping in each JereIDE release.
           <br />
           For full notes, visit the{" "}
-          <a href="https://www.github.com/jereide/jereide/releases">
+          <a href="https://www.github.com/JereIDE/JereIDE/releases">
             JereIDE Release Notes
           </a>
           .
