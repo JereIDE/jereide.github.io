@@ -109,7 +109,7 @@ const HeroSection = ({ versionNumber }) => {
                   <Typography
                     variant="body-reduced"
                     color="tertiary"
-                    style={{ marginBottom: 24 }}
+                    style={{ marginBottom: 48 }}
                   >
                     {latestTag || versionNumber || "v0.12.1"}
                     <br />
