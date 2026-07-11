@@ -68,8 +68,8 @@ const HeroSection = ({ versionNumber }) => {
                     color="tertiary"
                     gutterBottom
                   >
-                    JereIDE as an open-source, fast editor built in Rust with
-                    built-in LSP features and weekly, sometimes daily, releases.
+                    JereIDE as an open-source, cross-platform editor built in
+                    Rust with built-in LSP features and frequent updates.
                   </Typography>
                   <DropdownMenu
                     trigger={() => (
