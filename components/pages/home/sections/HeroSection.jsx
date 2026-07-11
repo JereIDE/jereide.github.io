@@ -20,15 +20,21 @@ const ProductIconWrap = styled.div`
   margin-right: auto;
 `;
 
-const HeroSection = ({ versionNumber, minimumSystemVersion }) => {
+const HeroSection = ({ versionNumber }) => {
   const router = useRouter();
   const [latestAssets, setLatestAssets] = useState(null);
+  const [latestTag, setLatestTag] = useState(null);
   useEffect(() => {
     fetch("https://api.github.com/repos/JereIDE/JereIDE/releases/latest")
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
-        if (data && Array.isArray(data.assets)) {
-          setLatestAssets(data.assets);
+        if (data) {
+          if (Array.isArray(data.assets)) {
+            setLatestAssets(data.assets);
+          }
+          if (data.tag_name) {
+            setLatestTag(data.tag_name);
+          }
         }
       })
       .catch(() => {});
@@ -100,14 +106,14 @@ const HeroSection = ({ versionNumber, minimumSystemVersion }) => {
                       </DropdownMenuItem>
                     )}
                   </DropdownMenu>
-                  <Typography variant="body-reduced" color="tertiary">
-                    {versionNumber} | macOS{" "}
-                    {minimumSystemVersion
-                      ? `${minimumSystemVersion.split(".")[0]}+`
-                      : ``}
-                  </Typography>
-                  <Typography variant="body-reduced" color="tertiary">
-                    This is an alpha release.
+                  <Typography
+                    variant="body-reduced"
+                    color="tertiary"
+                    style={{ marginBottom: 24 }}
+                  >
+                    {latestTag || versionNumber || "v0.12.1"}
+                    <br />
+                    macOS 12+ | Windows 10+ | Linux GlibC 2.35+
                   </Typography>
                 </Stack>
               </Column>

@@ -4,7 +4,6 @@ export async function getStaticProps() {
   return {
     props: {
       versionNumber: null,
-      minimumSystemVersion: "12",
     },
   };
 }
