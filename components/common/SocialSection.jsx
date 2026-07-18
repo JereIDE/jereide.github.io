@@ -2,14 +2,9 @@ import styled from "styled-components";
 import { Heart } from "react-feather";
 import Typography from "@/components/common/Typography";
 import { Grid, GridItem, Section, Stack } from "@/components/common/layout";
-import DiscordSvg from "@/assets/discord-icon.svg";
 import GitHubSvg from "@/assets/github-icon.svg";
 import config from "@/data/config";
 
-const DiscordIcon = styled(DiscordSvg)`
-  width: 48px;
-  height: 48px;
-`;
 const GitHubIcon = styled(GitHubSvg)`
   width: 48px;
   height: 48px;
@@ -18,7 +13,7 @@ const GitHubIcon = styled(GitHubSvg)`
 const SocialSection = () => {
   return (
     <Section contained gutterY>
-      <Grid columns={{ xs: 1, md: 2, lg: 3 }} gap>
+      <Grid columns={{ xs: 1, md: 2, lg: 2 }} gap>
         <GridItem>
           <Stack gap={1} align="center" style={{ textAlign: "center" }}>
             <GitHubIcon />
@@ -38,9 +33,6 @@ const SocialSection = () => {
             <Typography variant="body-reduced">
               Don&apos;t have time to contribute? You can show your support
               by... using the editor that nobody ever uses.
-            </Typography>
-            <Typography variant="body-reduced">
-              <a href={config.links.githubSponsor}>Sponsor the Project</a>
             </Typography>
           </Stack>
         </GridItem>

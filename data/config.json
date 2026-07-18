@@ -1,12 +1,12 @@
 {
-  "host": "https://getmythic.app",
+  "host": "https://jereide.github.io",
   "title": "JereIDE",
   "description": "JereIDE app website.",
   "repositoryUrl": "https://github.com/JereIDE/JereIDE",
   "pages": {
     "/": {
       "title": "Overview",
-      "description": "The elegant way to play Windows® games on Mac."
+      "description": "The ready-to-use editor that nobody uses."
     },
     "/releases": {
       "title": "Releases",
@@ -14,15 +14,11 @@
     },
     "/download": {
       "title": "Download",
-      "description": "Download JereIDE, the best way to play Windows® games on Mac."
+      "description": "Download JereIDE."
     },
     "https://github.com/JereIDE/JereIDE": {
       "title": "GitHub",
       "description": "JereIDE GitHub repository"
-    },
-    "https://github.com/sponsors/jereide": {
-      "title": "Sponsor",
-      "description": "JereIDE GitHub Sponsors page"
     }
   },
   "links": {

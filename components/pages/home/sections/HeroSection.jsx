@@ -58,7 +58,7 @@ const HeroSection = ({ versionNumber }) => {
                     />
                   </ProductIconWrap>
                   <Typography variant="headline-elevated">
-                    The ready-to-use, open-source editor that
+                    The ready-to-use, open-source editor that{" "}
                     <HighlightedText>nobody uses.</HighlightedText>
                   </Typography>
                   <Typography
@@ -73,13 +73,13 @@ const HeroSection = ({ versionNumber }) => {
                   <DropdownMenu
                     trigger={() => (
                       <Button size="lg">
-                        <Download
+                        {/* <Download
                           style={{
                             width: 18,
                             height: 18,
                             verticalAlign: "middle",
                           }}
-                        />
+                        />*/}
                         Be the first to use it →
                       </Button>
                     )}

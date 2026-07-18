@@ -114,8 +114,8 @@ function Footer() {
           <MiniFooterBottom>
             <LegalCopyright>
               Copyright &copy; {currentYear}{" "}
-              <a href="https://vapid.space">vapidinfinity</a>. All rights
-              reserved.
+              <a href="https://github.com/jeremy-qian">Jeremy-Qian</a>. All
+              rights reserved.
             </LegalCopyright>
             <LegalLinks>
               {/* <LegalLink href="/legal/tos">
