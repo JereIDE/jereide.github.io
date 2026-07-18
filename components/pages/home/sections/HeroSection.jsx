@@ -58,10 +58,8 @@ const HeroSection = ({ versionNumber }) => {
                     />
                   </ProductIconWrap>
                   <Typography variant="headline-elevated">
-                    A fast and simple editor.
-                    <p></p>
-                    Open Source.{" "}
-                    <HighlightedText>Free Forever.</HighlightedText>
+                    The ready-to-use, open-source editor that
+                    <HighlightedText>nobody uses.</HighlightedText>
                   </Typography>
                   <Typography
                     variant="intro-elevated"
@@ -69,7 +67,8 @@ const HeroSection = ({ versionNumber }) => {
                     gutterBottom
                   >
                     JereIDE as an open-source, cross-platform editor built in
-                    Rust with built-in LSP features and frequent updates.
+                    Rust with very frequent updates. Unfortunately, nobody uses
+                    it.
                   </Typography>
                   <DropdownMenu
                     trigger={() => (
@@ -81,7 +80,7 @@ const HeroSection = ({ versionNumber }) => {
                             verticalAlign: "middle",
                           }}
                         />
-                        Download
+                        Be the first to use it →
                       </Button>
                     )}
                   >
@@ -111,9 +110,9 @@ const HeroSection = ({ versionNumber }) => {
                     color="tertiary"
                     style={{ marginBottom: 48 }}
                   >
-                    {latestTag || versionNumber || "v0.12.1"}
+                    {latestTag || versionNumber || "Latest Stable"}
                     <br />
-                    macOS 12+ | Windows 10+ | Linux GlibC 2.35+
+                    macOS 12+ | Windows 10+
                   </Typography>
                 </Stack>
               </Column>

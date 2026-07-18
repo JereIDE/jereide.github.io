@@ -21,25 +21,10 @@ const SocialSection = () => {
       <Grid columns={{ xs: 1, md: 2, lg: 3 }} gap>
         <GridItem>
           <Stack gap={1} align="center" style={{ textAlign: "center" }}>
-            <DiscordIcon />
-            <Typography variant="headline-body">
-              Join the conversation
-            </Typography>
-            <Typography variant="body-reduced">
-              Join the JereIDE community to ask questions, share ideas, and get
-              help.
-            </Typography>
-            <Typography variant="body-reduced">
-              <a href={config.links.discord}>Start a conversation</a>
-            </Typography>
-          </Stack>
-        </GridItem>
-        <GridItem>
-          <Stack gap={1} align="center" style={{ textAlign: "center" }}>
             <GitHubIcon />
             <Typography variant="headline-body">Start Contributing</Typography>
             <Typography variant="body-reduced">
-              Help in shaping JereIDE through pull requests and issues.
+              Help out by creating Issues and PRs. I really need you!
             </Typography>
             <Typography variant="body-reduced">
               <a href={config.links.githubRepo}>Check it out</a>
@@ -49,10 +34,10 @@ const SocialSection = () => {
         <GridItem>
           <Stack gap={1} align="center" style={{ textAlign: "center" }}>
             <Heart size={48} />
-            <Typography variant="headline-body">Become a Sponsor</Typography>
+            <Typography variant="headline-body">Support Me</Typography>
             <Typography variant="body-reduced">
-              Don&apos;t have time to contribute? You can show your support by
-              becoming a sponsor.
+              Don&apos;t have time to contribute? You can show your support
+              by... using the editor that nobody ever uses.
             </Typography>
             <Typography variant="body-reduced">
               <a href={config.links.githubSponsor}>Sponsor the Project</a>
