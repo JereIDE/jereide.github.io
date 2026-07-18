@@ -29,10 +29,5 @@
     "discord": "https://discord.gg/rDMcVx3B9b",
     "license": "https://github.com/JereIDE/JereIDE/blob/main/LICENSE.md"
   },
-  "navigation": [
-    "/",
-    "/releases",
-    "https://github.com/JereIDE/JereIDE",
-    "https://github.com/sponsors/jereide"
-  ]
+  "navigation": ["/", "/releases", "https://github.com/JereIDE/JereIDE"]
 }
