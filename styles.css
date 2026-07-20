@@ -1,6 +1,6 @@
 @font-face {
     font-family: "iA Writer Quattro";
-    src: url("iAWriterQuattroV.ttf") format("truetype");
+    src: url("assets/iAWriterQuattroV.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -75,4 +75,11 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 10px !important;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 128px;
+    height: 128px;
 }
