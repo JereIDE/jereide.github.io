@@ -1,6 +1,5 @@
 const downloadBtn = document.querySelector(".button-accent");
 const navbar = document.querySelector(".navbar");
-const container = document.querySelector(".container");
 
 fetch("https://api.github.com/repos/JereIDE/JereIDE/releases/latest")
   .then((res) => res.json())
@@ -20,12 +19,12 @@ window.addEventListener(
     if (window.scrollY > threshold) {
       if (!navbar.classList.contains("navbar-fixed")) {
         navbar.classList.add("navbar-fixed");
-        container.style.marginTop = navbar.offsetHeight + "px";
+        document.body.style.paddingTop = navbar.offsetHeight + "px";
       }
     } else {
       if (navbar.classList.contains("navbar-fixed")) {
         navbar.classList.remove("navbar-fixed");
-        container.style.marginTop = "";
+        document.body.style.paddingTop = "";
       }
     }
   },
