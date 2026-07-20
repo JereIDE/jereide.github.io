@@ -156,3 +156,7 @@ h1 {
 .nav-link.active {
     color: #000;
 }
+
+.version {
+    text-align: center;
+}
