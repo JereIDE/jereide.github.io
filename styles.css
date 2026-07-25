@@ -68,7 +68,7 @@ h1 {
     text-decoration: none;
     transition:
         color 0.2s ease,
-        background-color 0.2s ease;
+        background-color 0.3s ease;
 }
 
 .button-border:hover {
@@ -159,4 +159,35 @@ h1 {
 
 .version {
     text-align: center;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    background: #f0f0f0;
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+
+.stat {
+    flex: 1;
+    text-align: center;
+    padding: 0 1.75rem;
+    position: relative;
+}
+
+.stat:first-child::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 1rem;
+    width: 1px;
+    background: #ddd;
+}
+
+.stat-desc {
+    padding-bottom: 1rem;
+    margin-top: 0px;
+    font-size: 1rem;
 }
