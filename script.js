@@ -5,11 +5,12 @@ fetch("https://api.github.com/repos/JereIDE/JereIDE/releases/latest")
   .then((res) => res.json())
   .then((data) => {
     const tag = data.tag_name;
-    downloadLabel.textContent = `v${tag.replace(/^v/i, "")}`;
+    const version = `v${tag.replace(/^v/i, "")}`;
+    downloadLabel.textContent = `${version} · macOS 12+ · Windows 10+`;
     downloadLabel.href = data.html_url;
   })
   .catch(() => {
-    downloadLabel.textContent = "The Latest Version";
+    downloadLabel.textContent = "macOS 12+ · Windows 10+";
   });
 
 window.addEventListener(
