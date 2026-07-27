@@ -17,7 +17,7 @@ function timeAgo(date) {
   for (const interval of intervals) {
     const count = Math.floor(seconds / interval.seconds);
     if (count >= 1) {
-      return `${count}${interval.label}${count > 1 ? "s" : ""} ago`;
+      return `${count} ${interval.label}${count > 1 ? "s" : ""} ago`;
     }
   }
   return "just now";
