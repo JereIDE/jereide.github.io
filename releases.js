@@ -82,8 +82,8 @@ function labelAsset(name) {
   let label = name;
   // Remove common extensions
   label = label.replace(/\.(dmg|msi|zip|tar\.\w+|AppImage|exe)$/i, "");
-  // Replace hyphens/underscores with spaces
-  label = label.replace(/[-_]/g, " ").replace(/\s+/g, " ").trim();
+  // Replace hyphens with spaces (keep underscores — they're meaningful like x86_64)
+  label = label.replace(/-/g, " ").replace(/\s+/g, " ").trim();
 
   // Shorten version strings for readability but keep arch info
   label = label
