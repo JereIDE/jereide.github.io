@@ -176,7 +176,7 @@ h1 {
     position: relative;
 }
 
-.stat:first-child::after {
+.stat:not(:last-child)::after {
     content: "";
     position: absolute;
     right: 0;

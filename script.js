@@ -2,6 +2,7 @@ const downloadLabel = document.querySelector(".version");
 const navbar = document.querySelector(".navbar");
 const starsCount = document.getElementById("stars-count");
 const commitTime = document.getElementById("commit-time");
+const versionsCount = document.getElementById("versions-count");
 
 function timeAgo(date) {
   const seconds = Math.floor((new Date() - new Date(date)) / 1000);
@@ -65,6 +66,36 @@ fetch("https://api.github.com/repos/JereIDE/JereIDE")
   .catch(() => {
     starsCount.textContent = "0";
     commitTime.textContent = "-";
+    versionsCount.textContent = "0";
+  });
+
+function animateCount(el, target) {
+  let current = 0;
+  const steps = target > 0 ? target : 1;
+  const increment = target > 100 ? Math.ceil(target / 50) : 1;
+  const duration = 1500;
+  const stepTime = Math.floor(duration / (Math.min(target, steps) / increment));
+
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = current;
+  }, stepTime);
+}
+
+// Fetch release count for "Versions Released"
+fetch("https://api.github.com/repos/JereIDE/JereIDE/releases")
+  .then((res) => res.json())
+  .then((releases) => {
+    if (Array.isArray(releases)) {
+      animateCount(versionsCount, releases.length);
+    }
+  })
+  .catch(() => {
+    versionsCount.textContent = "0";
   });
 
 window.addEventListener(
