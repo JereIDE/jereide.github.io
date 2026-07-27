@@ -145,6 +145,7 @@ function renderRelease(release, index) {
 
   // Build download section — construct elements safely
   const downloadEl = document.createElement("div");
+  downloadEl.className = "download-group";
   if (hasAssets) {
     const select = document.createElement("select");
     select.className = "asset-select";
@@ -166,7 +167,6 @@ function renderRelease(release, index) {
       btn.href = this.value;
     });
 
-    downloadEl.className = "download-group";
     downloadEl.appendChild(select);
     downloadEl.appendChild(btn);
   } else {
