@@ -8,5 +8,4 @@ JereIDE is actively developed by a single person, Jeremy-Qian. In fact, so activ
 
 ## Contributing
 
-The source for this wiki lives in [`wiki/`](../wiki/). Edit the markdown files
-under `wiki/src/`, then run `mdbook build wiki` to regenerate `docs/`.
+I would love for you to contribute by either issues or PRs, because nobody ever submitted them to me!
