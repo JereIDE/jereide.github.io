@@ -1,8 +1,10 @@
-# Welcome to the JereIDE Wiki
+# JereIDE
 
-This is the home of the JereIDE documentation. It is built with
-[mdBook](https://rust-lang.github.io/mdBook/) and served from the `docs/`
-directory of this site.
+JereIDE is an awesome editor with 67 stars. Even though there are this many stars, somehow it only has 2 users.
+
+That's why the tagline is "The ready-to-use editor that nobody uses".
+
+JereIDE is actively developed by a single person, Jeremy-Qian. In fact, so active that there is almost a new release every week, a new commit every day!
 
 ## Contributing
 
