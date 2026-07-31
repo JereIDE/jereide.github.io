@@ -1,0 +1,367 @@
+@font-face {
+    font-family: "iA Writer Quattro V";
+    src: url("../assets/iAWriterQuattroV.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 100 900;
+}
+
+/* Light themes -> white/black */
+html.light,
+html.rust {
+    --bg: #ffffff;
+    --fg: #000000;
+    --sidebar-bg: #f7f7f7;
+    --sidebar-fg: #000000;
+    --sidebar-active: #000000;
+    --sidebar-active-bg: #e0e0e0;
+    --sidebar-non-existant: #aaaaaa;
+    --sidebar-spacer: #cccccc;
+    --scrollbar: #cccccc;
+    --icons: #000000;
+    --icons-hover: #000000;
+    --links: #000000;
+    --links-hover: #555555;
+    --inline-code-color: #000000;
+    --theme-popup-bg: #ffffff;
+    --theme-popup-border: #cccccc;
+    --theme-hover: #eeeeee;
+    --quote-bg: #f2f2f2;
+    --quote-border: #cccccc;
+    --table-border-color: #cccccc;
+    --headings-border-color: #e0e0e0;
+    --table-header-bg: #f2f2f2;
+    --table-alternate-bg: #fafafa;
+    --searchbar-border-color: #cccccc;
+    --searchbar-bg: #fafafa;
+    --searchbar-fg: #000000;
+    --searchbar-shadow-color: transparent;
+    --searchresults-header-fg: #666666;
+    --searchresults-border-color: #cccccc;
+    --searchresults-li-bg: #fafafa;
+    --search-mark-bg: #eeeeee;
+    --chapter-hover-bg: #eeeeee;
+    --chapter-active-fg: #000000;
+    --chapter-active-border-color: #000000;
+}
+
+/* Dark themes -> black/white */
+html.coal,
+html.navy,
+html.ayu {
+    --bg: #000000;
+    --fg: #ffffff;
+    --sidebar-bg: #1a1a1a;
+    --sidebar-fg: #ffffff;
+    --sidebar-active: #ffffff;
+    --sidebar-active-bg: #3a3a3a;
+    --sidebar-non-existant: #666666;
+    --sidebar-spacer: #333333;
+    --scrollbar: #333333;
+    --icons: #ffffff;
+    --icons-hover: #ffffff;
+    --links: #ffffff;
+    --links-hover: #cccccc;
+    --inline-code-color: #ffffff;
+    --theme-popup-bg: #1a1a1a;
+    --theme-popup-border: #333333;
+    --theme-hover: #222222;
+    --quote-bg: #1a1a1a;
+    --quote-border: #333333;
+    --table-border-color: #333333;
+    --headings-border-color: #222222;
+    --table-header-bg: #1a1a1a;
+    --table-alternate-bg: #111111;
+    --searchbar-border-color: #333333;
+    --searchbar-bg: #1a1a1a;
+    --searchbar-fg: #ffffff;
+    --searchbar-shadow-color: transparent;
+    --searchresults-header-fg: #aaaaaa;
+    --searchresults-border-color: #333333;
+    --searchresults-li-bg: #1a1a1a;
+    --search-mark-bg: #333333;
+    --chapter-hover-bg: #222222;
+    --chapter-active-fg: #ffffff;
+    --chapter-active-border-color: #ffffff;
+}
+
+html,
+body,
+.sidebar,
+main,
+pre,
+code,
+.hljs,
+.menu-title {
+    font-family:
+        "iA Writer Quattro V",
+        -apple-system,
+        "Segoe UI",
+        sans-serif;
+}
+
+body {
+    font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.menu-title,
+.nav-chapters,
+#sidebar-toggle {
+    font-weight: 700;
+}
+
+/* Chapter titles in the sidebar are bold */
+.chapter > li > .chapter-link-wrapper > a {
+    font-weight: 700;
+}
+
+/* Chapter content (sub-chapter) titles in the sidebar are not bold */
+.chapter > li > ul.subchapter > li > .chapter-link-wrapper > a {
+    font-weight: 400;
+}
+
+/* All sidebar items: uniform indent and full-width layout */
+.chapter li a {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    padding-inline: 16px;
+}
+
+/* Current selected item: gray background spanning the width, with edge margins */
+.chapter li a.active {
+    position: relative;
+    isolation: isolate;
+}
+.chapter li a.active::before {
+    content: "";
+    position: absolute;
+    inset: 0 8px;
+    background: var(--sidebar-active-bg);
+    border-radius: 0;
+    z-index: -1;
+}
+
+.chapter li a.current-header {
+    background: var(--sidebar-active-bg);
+}
+
+/* Hide the chapter numbers in the sidebar */
+.chapter strong[aria-hidden="true"] {
+    display: none;
+}
+
+/* Hide the per-page heading sub-content ("On this page") in the sidebar */
+.on-this-page {
+    display: none;
+}
+
+/* Hide the print button in the menu bar */
+a[href="print.html"] {
+    display: none;
+}
+
+/* Title bar spans the full width, with the sidebar below it */
+#mdbook-menu-bar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    height: var(--menu-bar-height);
+    z-index: 102;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 0 15px;
+    gap: 12px;
+    box-sizing: border-box;
+}
+/* Hide the default title immediately (no flash); it is replaced by the search bar */
+.menu-title {
+    display: none !important;
+}
+#mdbook-menu-bar .left-buttons {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+#mdbook-menu-bar .right-buttons {
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+}
+
+/* JereIDE home icon */
+#mdbook-menu-bar .home-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: 0 8px 0 4px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+#mdbook-menu-bar .home-link img {
+    width: 26px;
+    height: 26px;
+}
+
+/* Hide the toggle buttons (sidebar & search) since they are not used */
+#mdbook-sidebar-toggle,
+#mdbook-search-toggle {
+    display: none !important;
+}
+
+/* Search bar centered over the title bar (positioned by CSS so it appears with the page) */
+#mdbook-search-wrapper {
+    display: block !important;
+    position: fixed;
+    top: calc((var(--menu-bar-height) - 36px) / 2);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(460px, calc(100vw - 260px));
+    z-index: 105;
+}
+.searchbar-outer {
+    max-width: 460px;
+    margin: 0 auto;
+    padding: 0;
+}
+.search-wrapper {
+    display: flex;
+    align-items: center;
+}
+#mdbook-searchbar {
+    width: 100%;
+    margin: 0;
+    padding: 7px 12px 7px 32px;
+    border: 1px solid #000000;
+    border-radius: 0;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23666' d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 14px 14px;
+    color: #000000;
+    font-family: "iA Writer Quattro V", sans-serif;
+    font-size: 14px;
+    outline: none;
+    box-shadow: none;
+}
+#mdbook-searchbar:focus,
+#mdbook-searchbar.active {
+    box-shadow: none;
+    border-color: #000000;
+}
+
+/* Search results popup (moved to <body> by custom.js, positioned fixed so it can't be clipped) */
+.searchresults-outer {
+    position: fixed !important;
+    top: calc(var(--menu-bar-height) + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(520px, calc(100vw - 40px));
+    max-height: 70vh;
+    overflow-y: auto;
+    margin: 0;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 6px 12px 12px;
+    z-index: 300;
+}
+.searchresults-header {
+    padding-block-start: 10px;
+    padding-inline-end: 30px;
+    padding-block-end: 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666666;
+    border-block-end: 1px solid #eeeeee;
+}
+.searchresults-outer ul#mdbook-searchresults {
+    padding-inline-start: 0;
+}
+.searchresults-outer ul#mdbook-searchresults li {
+    margin: 0;
+    padding: 10px 8px;
+    border-radius: 0;
+    border-block-end: 1px solid #eeeeee;
+}
+.searchresults-outer ul#mdbook-searchresults li:last-child {
+    border-block-end: none;
+}
+.searchresults-outer ul#mdbook-searchresults li.focus {
+    background-color: #f2f2f2;
+}
+.searchresults-outer ul#mdbook-searchresults a {
+    color: #000000;
+    text-decoration: none;
+}
+.searchresults-outer ul#mdbook-searchresults a:hover {
+    color: #444444;
+}
+.searchresults-outer ul#mdbook-searchresults span.teaser {
+    color: #666666;
+    margin-inline-start: 0;
+}
+.searchresults-close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    color: #666666;
+    padding: 4px;
+}
+.searchresults-close:hover {
+    color: #000000;
+}
+
+.sidebar {
+    top: var(--menu-bar-height);
+    bottom: 0;
+}
+
+/* Keep content clear of the fixed title bar */
+#mdbook-menu-bar-hover-placeholder {
+    display: none;
+}
+
+/* Target multiple elements with high specificity to ensure padding is applied */
+html body .page-wrapper > .page > .content,
+html body .page-wrapper > .page,
+.content {
+    padding-top: 15px !important;
+    margin-top: 0 !important;
+}
+
+/* Fallback for page-wrapper itself */
+.page-wrapper {
+    padding-top: 15px !important;
+}
+
+/* Keep anchored headings from hiding under the fixed title bar */
+html,
+body {
+    scroll-padding-top: 15px !important;
+}
+
+code,
+pre {
+    font-size: 1em;
+}

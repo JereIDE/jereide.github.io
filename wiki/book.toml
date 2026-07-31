@@ -1,0 +1,12 @@
+[book]
+title = "JereIDE Wiki"
+authors = ["Jeremy-Qian"]
+language = "en"
+
+[build]
+build-dir = "../docs"
+
+[output.html]
+git-repository-url = "https://github.com/JereIDE/JereIDE"
+additional-css = ["custom.css"]
+additional-js = ["src/custom.js"]
