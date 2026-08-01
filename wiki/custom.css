@@ -186,6 +186,8 @@ a[href="print.html"] {
     padding: 0 15px;
     gap: 12px;
     box-sizing: border-box;
+    background-color: var(--sidebar-bg);
+    border-block-end-color: var(--sidebar-spacer);
 }
 /* Hide the default title immediately (no flash); it is replaced by the search bar */
 .menu-title {
@@ -225,6 +227,29 @@ a[href="print.html"] {
     display: none !important;
 }
 
+/* Only allow Auto, Light, and Coal themes */
+#mdbook-theme-rust,
+#mdbook-theme-navy,
+#mdbook-theme-ayu {
+    display: none !important;
+}
+
+/* Theme popup: flat, matching the rest of the page */
+.theme-popup {
+    border-radius: 0;
+    border: 1px solid var(--theme-popup-border);
+    background-color: var(--theme-popup-bg);
+    box-shadow: none;
+}
+.theme-popup .theme {
+    padding: 8px 20px;
+    line-height: 25px;
+    font-family: "iA Writer Quattro V", sans-serif;
+}
+.theme-popup .theme:hover {
+    background-color: var(--theme-hover);
+}
+
 /* Search bar centered over the title bar (positioned by CSS so it appears with the page) */
 #mdbook-search-wrapper {
     display: block !important;
@@ -248,14 +273,14 @@ a[href="print.html"] {
     width: 100%;
     margin: 0;
     padding: 7px 12px 7px 32px;
-    border: 1px solid #000000;
+    border: 1px solid var(--searchbar-border-color);
     border-radius: 0;
-    background-color: #ffffff;
+    background-color: var(--searchbar-bg);
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23666' d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: 10px center;
     background-size: 14px 14px;
-    color: #000000;
+    color: var(--searchbar-fg);
     font-family: "iA Writer Quattro V", sans-serif;
     font-size: 14px;
     outline: none;
@@ -264,7 +289,7 @@ a[href="print.html"] {
 #mdbook-searchbar:focus,
 #mdbook-searchbar.active {
     box-shadow: none;
-    border-color: #000000;
+    border-color: var(--searchbar-border-color);
 }
 
 /* Search results popup (moved to <body> by custom.js, positioned fixed so it can't be clipped) */
@@ -277,8 +302,8 @@ a[href="print.html"] {
     max-height: 70vh;
     overflow-y: auto;
     margin: 0;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
+    background-color: var(--bg);
+    border: 1px solid var(--searchbar-border-color);
     border-radius: 0;
     box-shadow: none;
     padding: 6px 12px 12px;
@@ -292,8 +317,8 @@ a[href="print.html"] {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #666666;
-    border-block-end: 1px solid #eeeeee;
+    color: var(--searchresults-header-fg);
+    border-block-end: 1px solid var(--headings-border-color);
 }
 .searchresults-outer ul#mdbook-searchresults {
     padding-inline-start: 0;
@@ -302,23 +327,23 @@ a[href="print.html"] {
     margin: 0;
     padding: 10px 8px;
     border-radius: 0;
-    border-block-end: 1px solid #eeeeee;
+    border-block-end: 1px solid var(--headings-border-color);
 }
 .searchresults-outer ul#mdbook-searchresults li:last-child {
     border-block-end: none;
 }
 .searchresults-outer ul#mdbook-searchresults li.focus {
-    background-color: #f2f2f2;
+    background-color: var(--theme-hover);
 }
 .searchresults-outer ul#mdbook-searchresults a {
-    color: #000000;
+    color: var(--links);
     text-decoration: none;
 }
 .searchresults-outer ul#mdbook-searchresults a:hover {
-    color: #444444;
+    color: var(--links-hover);
 }
 .searchresults-outer ul#mdbook-searchresults span.teaser {
-    color: #666666;
+    color: var(--searchresults-header-fg);
     margin-inline-start: 0;
 }
 .searchresults-close {
@@ -330,11 +355,11 @@ a[href="print.html"] {
     cursor: pointer;
     font-size: 20px;
     line-height: 1;
-    color: #666666;
+    color: var(--icons);
     padding: 4px;
 }
 .searchresults-close:hover {
-    color: #000000;
+    color: var(--icons-hover);
 }
 
 .sidebar {

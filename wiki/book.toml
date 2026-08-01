@@ -10,3 +10,5 @@ build-dir = "../docs"
 git-repository-url = "https://github.com/JereIDE/JereIDE"
 additional-css = ["custom.css"]
 additional-js = ["src/custom.js"]
+default-theme = "light"
+preferred-dark-theme = "coal"
