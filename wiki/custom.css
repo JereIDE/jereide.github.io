@@ -422,3 +422,59 @@ code,
 pre {
     font-size: 1em;
 }
+
+/* Hide mdBook's native alert blockquote until JS converts it to the site style */
+.content blockquote.blockquote-tag {
+    display: none;
+}
+
+/* Markdown alerts, rendered the same way as the releases page */
+.markdown-alert {
+    border-left: 4px solid var(--quote-border);
+    padding: 12px 16px;
+    margin: 16px 0;
+    background: var(--quote-bg);
+}
+.markdown-alert-title {
+    font-weight: bold;
+    margin: 0 0 4px 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.markdown-alert :first-child {
+    margin-top: 0;
+}
+.markdown-alert :last-child {
+    margin-bottom: 0;
+}
+.markdown-alert-note {
+    border-left-color: #0969da;
+}
+.markdown-alert-note .markdown-alert-title {
+    color: #0969da;
+}
+.markdown-alert-tip {
+    border-left-color: #1a7f37;
+}
+.markdown-alert-tip .markdown-alert-title {
+    color: #1a7f37;
+}
+.markdown-alert-important {
+    border-left-color: #8250df;
+}
+.markdown-alert-important .markdown-alert-title {
+    color: #8250df;
+}
+.markdown-alert-warning {
+    border-left-color: #bf8700;
+}
+.markdown-alert-warning .markdown-alert-title {
+    color: #bf8700;
+}
+.markdown-alert-caution {
+    border-left-color: #cf222e;
+}
+.markdown-alert-caution .markdown-alert-title {
+    color: #cf222e;
+}

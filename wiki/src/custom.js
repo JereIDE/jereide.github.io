@@ -15,7 +15,10 @@ function modifyMenuBar() {
   const title = menuBar.querySelector(".menu-title");
   if (title) title.remove();
 
-  // 2. Add a JereIDE home icon to the left buttons
+  // 2. Convert mdBook's native alerts to the site's markdown-alert style
+  convertAlerts();
+
+  // 3. Add a JereIDE home icon to the left buttons
   const leftButtons = menuBar.querySelector(".left-buttons");
   if (leftButtons && !leftButtons.querySelector(".home-link")) {
     const homeLink = document.createElement("a");
@@ -34,7 +37,7 @@ function modifyMenuBar() {
     leftButtons.prepend(homeLink);
   }
 
-  // 3. Add the Auto/Dark/Light theme slider
+  // 4. Add the Auto/Dark/Light theme slider
   if (leftButtons && !leftButtons.querySelector(".theme-slider")) {
     const themeToggle = menuBar.querySelector("#mdbook-theme-toggle");
     const slider = document.createElement("div");
@@ -66,7 +69,7 @@ function modifyMenuBar() {
     syncSlider();
   }
 
-  // 4. Move the search results popup to <body> so no ancestor transform/overflow can clip it
+  // 5. Move the search results popup to <body> so no ancestor transform/overflow can clip it
   const resultsOuter = document.getElementById("mdbook-searchresults-outer");
   if (resultsOuter) {
     document.body.appendChild(resultsOuter);
@@ -85,14 +88,14 @@ function modifyMenuBar() {
     }
   }
 
-  // 5. Preload the search index so searching works immediately (mdbook only
+  // 6. Preload the search index so searching works immediately (mdbook only
   //    loads it when the search icon is clicked, which we have hidden).
   const searchToggle = document.getElementById("mdbook-search-toggle");
   if (searchToggle) {
     searchToggle.click();
   }
 
-  // 6. Keep the sidebar visible and prevent toggling it off
+  // 7. Keep the sidebar visible and prevent toggling it off
   const sidebarToggleAnchor = document.getElementById(
     "mdbook-sidebar-toggle-anchor",
   );
@@ -100,6 +103,38 @@ function modifyMenuBar() {
     sidebarToggleAnchor.checked = true;
     document.documentElement.classList.add("sidebar-visible");
   }
+}
+
+function convertAlerts() {
+  document
+    .querySelectorAll(".content blockquote.blockquote-tag")
+    .forEach(function (bq) {
+      let type = "";
+      bq.classList.forEach(function (cls) {
+        const m = cls.match(/^blockquote-tag-(.+)$/);
+        if (m) type = m[1];
+      });
+      if (!type) return;
+
+      const alert = document.createElement("div");
+      alert.className = "markdown-alert markdown-alert-" + type;
+
+      const titleP = bq.querySelector(".blockquote-tag-title");
+      let titleText = type;
+      if (titleP) {
+        titleText = (titleP.textContent || "").trim() || type;
+        titleP.remove();
+      }
+      const title = document.createElement("p");
+      title.className = "markdown-alert-title";
+      title.textContent = titleText;
+      alert.appendChild(title);
+
+      while (bq.firstChild) {
+        alert.appendChild(bq.firstChild);
+      }
+      bq.replaceWith(alert);
+    });
 }
 
 function getSliderTheme() {
