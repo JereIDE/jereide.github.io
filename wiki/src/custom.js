@@ -34,7 +34,39 @@ function modifyMenuBar() {
     leftButtons.prepend(homeLink);
   }
 
-  // 3. Move the search results popup to <body> so no ancestor transform/overflow can clip it
+  // 3. Add the Auto/Dark/Light theme slider
+  if (leftButtons && !leftButtons.querySelector(".theme-slider")) {
+    const themeToggle = menuBar.querySelector("#mdbook-theme-toggle");
+    const slider = document.createElement("div");
+    slider.className = "theme-slider";
+    slider.setAttribute("role", "group");
+    slider.setAttribute("aria-label", "Theme");
+
+    const thumb = document.createElement("div");
+    thumb.className = "theme-slider-thumb";
+    slider.appendChild(thumb);
+
+    ["auto", "dark", "light"].forEach(function (name) {
+      const btn = document.createElement("button");
+      btn.className = "theme-slider-opt";
+      btn.type = "button";
+      btn.dataset.theme = name;
+      btn.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      btn.addEventListener("click", function () {
+        applyTheme(name);
+      });
+      slider.appendChild(btn);
+    });
+
+    if (themeToggle) {
+      leftButtons.insertBefore(slider, themeToggle);
+    } else {
+      leftButtons.appendChild(slider);
+    }
+    syncSlider();
+  }
+
+  // 4. Move the search results popup to <body> so no ancestor transform/overflow can clip it
   const resultsOuter = document.getElementById("mdbook-searchresults-outer");
   if (resultsOuter) {
     document.body.appendChild(resultsOuter);
@@ -53,14 +85,14 @@ function modifyMenuBar() {
     }
   }
 
-  // 4. Preload the search index so searching works immediately (mdbook only
+  // 5. Preload the search index so searching works immediately (mdbook only
   //    loads it when the search icon is clicked, which we have hidden).
   const searchToggle = document.getElementById("mdbook-search-toggle");
   if (searchToggle) {
     searchToggle.click();
   }
 
-  // 5. Keep the sidebar visible and prevent toggling it off
+  // 6. Keep the sidebar visible and prevent toggling it off
   const sidebarToggleAnchor = document.getElementById(
     "mdbook-sidebar-toggle-anchor",
   );
@@ -68,4 +100,68 @@ function modifyMenuBar() {
     sidebarToggleAnchor.checked = true;
     document.documentElement.classList.add("sidebar-visible");
   }
+}
+
+function getSliderTheme() {
+  let saved = null;
+  try {
+    saved = localStorage.getItem("mdbook-theme");
+  } catch (e) {}
+  if (!saved || saved === "default_theme") return "auto";
+  if (saved === "coal" || saved === "navy" || saved === "ayu") return "dark";
+  return "light";
+}
+
+function syncSlider() {
+  const slider = document.querySelector(".theme-slider");
+  if (!slider) return;
+  const current = getSliderTheme();
+  slider.dataset.theme = current;
+  slider.querySelectorAll(".theme-slider-opt").forEach(function (btn) {
+    btn.dataset.active = btn.dataset.theme === current ? "true" : "false";
+  });
+}
+
+function applyTheme(mode) {
+  const darkSystem =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const resolved =
+    mode === "auto"
+      ? darkSystem
+        ? "coal"
+        : "light"
+      : mode === "dark"
+        ? "coal"
+        : "light";
+
+  ["light", "rust", "coal", "navy", "ayu", "default_theme"].forEach(
+    function (t) {
+      document.documentElement.classList.remove(t);
+    },
+  );
+  document.documentElement.classList.add(resolved);
+
+  const ayu = document.getElementById("mdbook-ayu-highlight-css");
+  const tn = document.getElementById("mdbook-tomorrow-night-css");
+  const hl = document.getElementById("mdbook-highlight-css");
+  if (resolved === "light") {
+    if (ayu) ayu.disabled = true;
+    if (tn) tn.disabled = true;
+    if (hl) hl.disabled = false;
+  } else {
+    if (ayu) ayu.disabled = true;
+    if (tn) tn.disabled = false;
+    if (hl) hl.disabled = true;
+  }
+
+  try {
+    if (mode === "auto") {
+      localStorage.removeItem("mdbook-theme");
+    } else {
+      localStorage.setItem("mdbook-theme", resolved);
+    }
+  } catch (e) {}
+
+  syncSlider();
 }
