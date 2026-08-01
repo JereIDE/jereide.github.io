@@ -12,6 +12,7 @@ html.light,
 html.rust {
     --bg: #ffffff;
     --fg: #000000;
+    --menu-bar-bg: rgba(255, 255, 255, 0.55);
     --sidebar-bg: #f7f7f7;
     --sidebar-fg: #000000;
     --sidebar-active: #000000;
@@ -54,6 +55,7 @@ html.navy,
 html.ayu {
     --bg: #000000;
     --fg: #ffffff;
+    --menu-bar-bg: rgba(58, 58, 58, 0.2);
     --sidebar-bg: #2b2b2b;
     --sidebar-fg: #ffffff;
     --sidebar-active: #ffffff;
@@ -209,8 +211,16 @@ a[href="print.html"] {
     padding: 0 15px;
     gap: 12px;
     box-sizing: border-box;
-    background-color: var(--sidebar-bg);
-    border-block-end-color: var(--sidebar-spacer);
+    background-color: var(--menu-bar-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-block-end: 1px solid var(--sidebar-spacer);
+}
+html.coal #mdbook-menu-bar,
+html.navy #mdbook-menu-bar,
+html.ayu #mdbook-menu-bar {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 /* Hide the default title immediately (no flash); it is replaced by the search bar */
 .menu-title {
