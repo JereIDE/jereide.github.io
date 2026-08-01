@@ -24,6 +24,14 @@ h1 {
     text-align: center;
 }
 
+.home-sections {
+    display: grid;
+    max-width: 1000px;
+    margin-top: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 40px 32px;
+}
+
 .tagline {
     font-family: "iA Writer Quattro", sans-serif;
     max-width: 650px;
