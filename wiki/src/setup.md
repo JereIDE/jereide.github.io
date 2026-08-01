@@ -34,4 +34,4 @@ Open Project TODO:
 > [!TIP]
 > There are many, many ways to invoke commands like this. For example, you can select `Open…` from the `File` menu to open a file, or you could also click the `Open…` button and select `Open File` from the dropdown.
 >
-> For opening a project, _you can also select `Open Project` from the `File` menu or press Command+Shift+O._ (Needs Implementation) And you could also click `Open…` in the title bar and select `Open Project` from the dropdown.
+> For opening a project, ~~you can also select `Open Project`from the`File` menu or press Command+Shift+O.~~ (Needs Implementation) And you could also click `Open…` in the title bar and select `Open Project` from the dropdown.
