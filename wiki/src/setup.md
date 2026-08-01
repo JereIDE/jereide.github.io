@@ -17,4 +17,21 @@ If a file is modified, or "dirty", a dot will appear to the left of the tab titl
 You can always close a tab by pressing `Cmd/Ctrl+W`.
 
 > [!TIP]
-> All of these commands are available in the command palette as `file: new`, `file: save`, etc.
+> All of these commands are available in the command palette as `file: new`, `file: save`, `file: close tab`, etc.
+
+## Opening Files and Folders
+
+To open a file, press `Cmd/Ctrl+O` or run `file: open` from the command palette and select the file in the native OS dialog. The file will open in a new tab and the editor will automatically switch to that tab.
+
+To open a project, run `file: open project` from the command palette and select a folder in the OS dialog. This is an experimental feature; The current directory will be shown in the sidebar. Nothing else.
+
+Open Project TODO:
+
+- [x] Command Palette Item
+- [ ] Menu Item
+- [ ] Keyboard Shortcut(Command+Shift+O)
+
+> [!TIP]
+> There are many, many ways to invoke commands like this. For example, you can select `Open…` from the `File` menu to open a file, or you could also click the `Open…` button and select `Open File` from the dropdown.
+>
+> For opening a project, _you can also select `Open Project` from the `File` menu or press Command+Shift+O._ (Needs Implementation) And you could also click `Open…` in the title bar and select `Open Project` from the dropdown.
