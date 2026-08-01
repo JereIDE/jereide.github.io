@@ -23,6 +23,8 @@ html.rust {
     --icons-hover: #000000;
     --links: #000000;
     --links-hover: #555555;
+    --link-line-decoration: #000000;
+    --link-line-decoration-hover: #000000;
     --inline-code-color: #000000;
     --theme-popup-bg: #ffffff;
     --theme-popup-border: #cccccc;
@@ -63,6 +65,8 @@ html.ayu {
     --icons-hover: #ffffff;
     --links: #ffffff;
     --links-hover: #cccccc;
+    --link-line-decoration: #ffffff;
+    --link-line-decoration-hover: #ffffff;
     --inline-code-color: #ffffff;
     --theme-popup-bg: #2b2b2b;
     --theme-popup-border: #555555;
@@ -132,6 +136,11 @@ h6 {
 .content h5,
 .content h6 {
     font-family: "IBM Plex Serif", serif;
+}
+
+/* Links are always underlined */
+.content a {
+    text-decoration: underline;
 }
 
 /* Chapter titles in the sidebar are bold */
