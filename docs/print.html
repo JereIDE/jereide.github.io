@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "coal";
-            window.path_to_searchindex_js = "searchindex-dd780ab0.js";
+            window.path_to_searchindex_js = "searchindex-50de1be0.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-87cfdf97.js"></script>
+        <script src="toc-c5625fb6.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -194,15 +194,97 @@
 <p>JereIDE is in its early beta stage, but you could try it out effortlessly. All the releases(including the legacy versions) are on the <a href="https://jereide.github.io/releases">releases page</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<p>JereIDE is available to macOS and Windows. Linux is not planned in the near future.</p>
+<h2 id="macos"><a class="header" href="#macos">macOS</a></h2>
+<p><strong>Requirements: macOS 12+, Intel or Apple Silicon</strong></p>
+<p>To install on macOS, go to the <a href="https://jereide.github.io/releases">download page</a>. Scroll to the version you prefer(I recommend the latest, because JereIDE is highly unstable and can have fatal bugs in older versions) and select in the dropdown either macOS Apple Silicon or Intel.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Note that even though macOS 27 drops support for Intel entirely, JereIDE will continue to support Intel devices and older macOS versions for quite a while because I am using an old laptop.</p>
+</blockquote>
+<h2 id="windows"><a class="header" href="#windows">Windows</a></h2>
+<p><strong>Requirements: Windows 10+, AMD64 chip</strong></p>
+<p>Just go to the <a href="https://jereide.github.io/releases">download page</a>. Scroll to the version you prefer and select in the dropdown “Windows Intel” or similar options in older versions.</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>Windows 8 is technically supported but JereIDE would be near to unusable there. I don’t want to put in time and effort trying to maintain compatibility with a completely obsolete operating system that I am not using.</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="setup"><a class="header" href="#setup">Setup</a></h1>
+<p>When you open JereIDE, a welcome page would show with the version, the logo, and the tagline.</p>
+<h2 id="get-to-know-the-command-palette"><a class="header" href="#get-to-know-the-command-palette">Get to Know the Command Palette</a></h2>
+<p>JereIDE has a useful Command Palette so you can search and run the commands you need. Press <code>Cmd/Ctrl+Shift+P</code> to open it. Press <code>Esc</code>, click outside, or run a command to close it. You can select commands with top/down arrows or your mouse. You can run them with <code>Enter</code> or <code>Return</code>.</p>
+<h2 id="creating-writing-and-saving-tabs-in-jereide"><a class="header" href="#creating-writing-and-saving-tabs-in-jereide">Creating, Writing, and Saving Tabs in JereIDE</a></h2>
+<p>Press <code>Cmd/Ctrl+N</code> to open a new tab.</p>
+<p>The new tab will appear with a blank editor, with “Untitled” in the tab title. You can start typing now. After you are done, press <code>Cmd/Ctrl+S</code> to save the file. A dialog will open and you can choose a filename(and the extension too) and save it in the directory you want.</p>
+<p>If a file is modified, or “dirty”, a dot will appear to the left of the tab title. After you save it, the dirty dot will vanish.</p>
+<p>You can always close a tab by pressing <code>Cmd/Ctrl+W</code>.</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>All of these commands are available in the command palette as <code>file: new</code>, <code>file: save</code>, <code>file: close tab</code>, etc.</p>
+</blockquote>
+<h2 id="opening-files-and-folders"><a class="header" href="#opening-files-and-folders">Opening Files and Folders</a></h2>
+<p>To open a file, press <code>Cmd/Ctrl+O</code> or run <code>file: open</code> from the command palette and select the file in the native OS dialog. The file will open in a new tab and the editor will automatically switch to that tab.</p>
+<p>To open a project, run <code>file: open project</code> from the command palette and select a folder in the OS dialog. This is an experimental feature; The current directory will be shown in the sidebar. Nothing else.</p>
+<p>Open Project TODO:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""> Command Palette Item</li>
+<li><input disabled="" type="checkbox"> Menu Item</li>
+<li><input disabled="" type="checkbox"> Keyboard Shortcut(Command+Shift+O)</li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>There are many, many ways to invoke commands like this. For example, you can select <code>Open…</code> from the <code>File</code> menu to open a file, or you could also click the <code>Open…</code> button and select <code>Open File</code> from the dropdown.</p>
+<p>For opening a project, <del>you can also select <code>Open Project</code>from the<code>File</code> menu or press Command+Shift+O.</del> (Needs Implementation) And you could also click <code>Open…</code> in the title bar and select <code>Open Project</code> from the dropdown.</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="the-ide-features-of-jereide"><a class="header" href="#the-ide-features-of-jereide">The IDE Features of JereIDE</a></h1>
 <p>JereIDE’s IDE features are mostly not implemented or incomplete, but these features are actively getting worked on!</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="find-and-replace"><a class="header" href="#find-and-replace">Find and Replace</a></h1>
+<p>Press <code>Command/Ctrl+F</code> or select Find and Replace from the edit menu to open the find/replace palette. It shows as a floating palette, but don’t worry, the results will always be visible.</p>
+<p>Find and Replace is accessible from the command palette as <code>editor: find replace</code>.</p>
+<p>If you have text selected in the editor when you trigger the palette, that selection is pre-filled into the Find field.</p>
+<h2 id="searching"><a class="header" href="#searching">Searching</a></h2>
+<p>Type into the <strong>Find</strong> field to search the current document. The results will be highlighted and will automatically scroll into view(without getting blocked by the palette). The current result will have a stronger highlight. Cycle through results using <code>Enter</code> or selecting the next/previous arrows. The current result vs. all the results will be shown too, as <code>Current Result Index/Total Results</code>, e.g. <code>3/7</code>.</p>
+<p>Everything updates live as you type.</p>
+<h2 id="options"><a class="header" href="#options">Options</a></h2>
+<ul>
+<li><strong>Match case</strong> – only match occurrences with the same casing.</li>
+<li><strong>Whole word</strong> – only match whole words, not parts of longer words.</li>
+</ul>
+<h2 id="replacing"><a class="header" href="#replacing">Replacing</a></h2>
+<p>Type something into the <strong>Replace with</strong> field.</p>
+<ul>
+<li><strong>Replace</strong> – replaces the currently selected match and automatically moves to the next result. Pressing <code>Enter</code> does the same.</li>
+<li><strong>Replace All</strong> – replaces every occurrence in the document at once.</li>
+</ul>
+<p>Both actions are recorded in the editor’s undo history, so you can undo them like any other edit.</p>
+<h2 id="future"><a class="header" href="#future">Future</a></h2>
+<p>Global project search is coming later.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="syntax-highlighting"><a class="header" href="#syntax-highlighting">Syntax Highlighting</a></h1>
+<p>JereIDE colorizes code automatically as you type. Highlighting for the correct language is done based on file extension.</p>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>Syntax highlighting will increase typing latency dramatically. This is under inspection and a fix is coming on the way.</p>
+</blockquote>
+<h2 id="language-support"><a class="header" href="#language-support">Language Support</a></h2>
+<p>Syntax definitions are stored as JSON files in the app’s <code>data</code> directory. The following languages are built-in:</p>
+<ul>
+<li>Rust</li>
+<li>Python</li>
+<li>HTML</li>
+<li>Markdown</li>
+</ul>
+<p>Other languages are coming, but if you really need support for one look below.</p>
+<h2 id="custom-language-support"><a class="header" href="#custom-language-support">Custom Language Support</a></h2>
+<p>You could make AI generate a highlighting JSON file based on the four already implemented.</p>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>Because some languages have complex syntax and is hard to highlight by plain regex(for example, Markdown and HTML), it would take some code editing to implement for these languages. Make sure your language is completely highlightable by plain regex.</p>
+</blockquote>
+<p>Modify the app’s <code>data</code> directory. Create a new JSON file and define the highlighting for your definition. Then you edit <code>languages.json</code> to point to the new file.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="bonus"><a class="header" href="#bonus">Bonus</a></h1>
 <p>Bonus features, easter eggs, experimental features, legacy debug widgets, and more!</p>
