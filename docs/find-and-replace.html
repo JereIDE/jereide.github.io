@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Getting Started - JereIDE Docs</title>
+        <title>Find and Replace - JereIDE Docs</title>
 
 
         <!-- Custom HTML head -->
@@ -177,18 +177,37 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
-<p>JereIDE is in its early beta stage, but you could try it out effortlessly. All the releases(including the legacy versions) are on the <a href="https://jereide.github.io/releases">releases page</a>.</p>
+                        <h1 id="find-and-replace"><a class="header" href="#find-and-replace">Find and Replace</a></h1>
+<p>Press <code>Command/Ctrl+F</code> or select Find and Replace from the edit menu to open the find/replace palette. It shows as a floating palette, but don’t worry, the results will always be visible.</p>
+<p>If you have text selected in the editor when you trigger the palette, that selection is pre-filled into the Find field.</p>
+<h2 id="searching"><a class="header" href="#searching">Searching</a></h2>
+<p>Type into the <strong>Find</strong> field to search the current document. The results will be highlighted and will automatically scroll into view(without getting blocked by the palette). The current result will have a stronger highlight. Cycle through results using <code>Enter</code> or selecting the next/previous arrows. The current result vs. all the results will be shown too, as <code>Current Result Index/Total Results</code>, e.g. <code>3/7</code>.</p>
+<p>Everything updates live as you type.</p>
+<h2 id="options"><a class="header" href="#options">Options</a></h2>
+<ul>
+<li><strong>Match case</strong> – only match occurrences with the same casing.</li>
+<li><strong>Whole word</strong> – only match whole words, not parts of longer words.</li>
+</ul>
+<h2 id="replacing"><a class="header" href="#replacing">Replacing</a></h2>
+<p>Type something into the <strong>Replace with</strong> field.</p>
+<ul>
+<li><strong>Replace</strong> – replaces the currently selected match and automatically moves to the next result. Pressing <code>Enter</code> does the same.</li>
+<li><strong>Replace All</strong> – replaces every occurrence in the document at once.</li>
+</ul>
+<p>Both actions are recorded in the editor’s undo history, so you can undo them like any other edit.</p>
+<h2 id="future"><a class="header" href="#future">Future</a></h2>
+<p>Triggering find&amp;replace from the command palette will be supported soon.
+Global project search is coming later.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="welcome.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="features-of-jereide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="installation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="syntax-highlighting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -198,11 +217,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="welcome.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="features-of-jereide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="installation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="syntax-highlighting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
