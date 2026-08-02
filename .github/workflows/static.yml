@@ -31,12 +31,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install mdBook
-        uses: peaceiris/actions-mdbook@v2
-        with:
-          mdbook-version: "0.5.4"
-      - name: Build wiki
-        run: mdbook build wiki
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
