@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "coal";
-            window.path_to_searchindex_js = "../searchindex-874a2f48.js";
+            window.path_to_searchindex_js = "../searchindex-bbfabccc.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-8482b96d.js"></script>
@@ -178,6 +178,14 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="auto-indent-bracket-pair-highlighting-and-auto-bracket-pairing"><a class="header" href="#auto-indent-bracket-pair-highlighting-and-auto-bracket-pairing">Auto Indent, Bracket Pair Highlighting, and Auto Bracket Pairing</a></h1>
+<p>This page covers 3 of the smaller features working behind the scenes.</p>
+<h2 id="auto-indent"><a class="header" href="#auto-indent">Auto Indent</a></h2>
+<p>In the future this might smart-indent based on language, but currently it just copies the previous line, whether it is made of spaces or tabs. Simple, and it works.</p>
+<h2 id="bracket-pair-highlighting"><a class="header" href="#bracket-pair-highlighting">Bracket Pair Highlighting</a></h2>
+<p>If you are inside a bracket and your cursor is near one of them, both brackets get highlighted. This feature is present in many, many editors and JereIDE would be incomplete without it. It helps you find where your current level is at in a confusing nest of brackets.</p>
+<h2 id="auto-bracket-pairing"><a class="header" href="#auto-bracket-pairing">Auto Bracket Pairing</a></h2>
+<p>When you type <code>{</code>, <code>(</code>, <code>[</code>, or <code>&lt;</code>, the closing bracket(<code>}</code>, <code>)</code>, <code>]</code>, or <code>&gt;</code>) is automatically inserted. If you happen to type the closing bracket yourself by habit, it won’t turn into <code>{}}</code>. Your cursor would just jump to after the closing bracket, as if auto-bracket-pairing had never happened.</p>
+<p>In the future a better implementation will automatically delete both brackets when you delete the opening one, and also lots of other smart features that <a href="https://zed.dev">Zed</a> somehow achieves.</p>
 
                     </main>
 
