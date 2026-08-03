@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "coal";
-            window.path_to_searchindex_js = "searchindex-fb4d484e.js";
+            window.path_to_searchindex_js = "searchindex-2e6f9803.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-bceccaf8.js"></script>
+        <script src="toc-f2db7515.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -286,12 +286,60 @@
 </blockquote>
 <p>Modify the app’s <code>data</code> directory. Create a new JSON file and define the highlighting for your definition. Then you edit <code>languages.json</code> to point to the new file.</p>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="the-command-palette"><a class="header" href="#the-command-palette">The Command Palette</a></h1>
+<p>The Command Palette is a palette that shows lots of commands! Here is a list of all of them, along with whatever they do.</p>
+<h2 id="file-new"><a class="header" href="#file-new"><code>file: new</code></a></h2>
+<p>Creates a new empty file and opens it in a new tab.</p>
+<h2 id="file-open"><a class="header" href="#file-open"><code>file: open</code></a></h2>
+<p>Opens a file picker so you can choose an existing file to open in a new tab.</p>
+<h2 id="file-open-project"><a class="header" href="#file-open-project"><code>file: open project</code></a></h2>
+<p>Opens a folder picker to choose a project dir. (Experimental)</p>
+<h2 id="file-save"><a class="header" href="#file-save"><code>file: save</code></a></h2>
+<p>Saves the current file.</p>
+<h2 id="file-save-as"><a class="header" href="#file-save-as"><code>file: save as</code></a></h2>
+<p>Saves the current file under a new name/location you choose.</p>
+<h2 id="file-close-tab"><a class="header" href="#file-close-tab"><code>file: close tab</code></a></h2>
+<p>Closes the current tab. If the file has unsaved changes, you’ll be asked what to do first.</p>
+<h2 id="editor-undo"><a class="header" href="#editor-undo"><code>editor: undo</code></a></h2>
+<p>Literally Undo.</p>
+<h2 id="editor-redo"><a class="header" href="#editor-redo"><code>editor: redo</code></a></h2>
+<p>Literally Redo.</p>
+<h2 id="editor-cut"><a class="header" href="#editor-cut"><code>editor: cut</code></a></h2>
+<p>Literally Cut.</p>
+<h2 id="editor-copy"><a class="header" href="#editor-copy"><code>editor: copy</code></a></h2>
+<p>Literally Copy.</p>
+<h2 id="editor-paste"><a class="header" href="#editor-paste"><code>editor: paste</code></a></h2>
+<p>Literally Paste.</p>
+<h2 id="editor-select-all"><a class="header" href="#editor-select-all"><code>editor: select all</code></a></h2>
+<p>Selects everything inside the current file.</p>
+<h2 id="editor-find-replace"><a class="header" href="#editor-find-replace"><code>editor: find replace</code></a></h2>
+<p>Opens a find&amp;replace palette. You can learn more <a href="#find-and-replace">here.</a></p>
+<h2 id="command-palette-toggle"><a class="header" href="#command-palette-toggle"><code>command palette: toggle</code></a></h2>
+<p>Since the command palette is open, this will close it.</p>
+<h2 id="view-toggle-sidebar"><a class="header" href="#view-toggle-sidebar"><code>view: toggle sidebar</code></a></h2>
+<p>Shows or hides the sidebar. (Experimental)</p>
+<h2 id="view-code"><a class="header" href="#view-code"><code>view: code</code></a></h2>
+<p>Switches to the code mode.</p>
+<h2 id="view-compose"><a class="header" href="#view-compose"><code>view: compose</code></a></h2>
+<p>Switches to the compose mode.</p>
+<h2 id="jereide-toggle-fullscreen"><a class="header" href="#jereide-toggle-fullscreen"><code>jereide: toggle fullscreen</code></a></h2>
+<p>Toggles fullscreen, literally.</p>
+<h2 id="jereide-quit"><a class="header" href="#jereide-quit"><code>jereide: quit</code></a></h2>
+<p>Closes the app, of course.</p>
+<h2 id="jereide-about"><a class="header" href="#jereide-about"><code>jereide: about</code></a></h2>
+<p>Shows the About dialog.</p>
+<h2 id="jereide-star-on-github"><a class="header" href="#jereide-star-on-github"><code>jereide: star on github</code></a></h2>
+<p>THE BEST! Opens the JereIDE repo in the browser. Star it!</p>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="bonus"><a class="header" href="#bonus">Bonus</a></h1>
 <p>Bonus features, easter eggs, experimental features, legacy debug widgets, and more!</p>
 <h2 id="the-widget-palette"><a class="header" href="#the-widget-palette">The Widget Palette</a></h2>
 <p>Press <code>Command/Ctrl+Shift+W</code> to open the Widget Palette. It was the foundation of the Find&amp;Replace dialog you see right now. It is kept because it… looks nice!</p>
 <h2 id="the-sidebar"><a class="header" href="#the-sidebar">The Sidebar</a></h2>
-<p>Quite a hidden feature, there is no prominent button in the UI for toggling it on. You can toggle it by pressing <code>Command/Ctrl+B</code> or selecting <code>view: toggle sidebar</code> in the command palette. It just shows the current project/directory, which is another experimental feature.</p>
+<p>Quite a hidden feature, there is no prominent button in the UI for toggling it on. You can toggle it by pressing <code>Command/Ctrl+B</code> or selecting <code>view: toggle sidebar</code> in the command palette.</p>
+<p>A recent commit just added a new cool feature: The sidebar now displays all the files in the current project! Still experimental though, and I can’t open files with it.</p>
+<h2 id="the-user-menu"><a class="header" href="#the-user-menu">The User Menu</a></h2>
+<p>A dropdown appears if you click the round avatar button in the far right of the title bar. It says “Username” and “Star us on GitHub”. Click the second one, star me! The Username button is not functional.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="contact"><a class="header" href="#contact">Contact</a></h1>
 <p>My email is <a href="mailto:jeremytheking2013@gmail.com">jeremytheking2013@gmail.com</a>.<br>Feel free to contact me any time about JereIDE, or about my other projects.</p>
