@@ -13,10 +13,14 @@ body {
     color: #222;
 }
 
-.container {
+.container {l
     max-width: 720px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+a {
+    color: #222;
 }
 
 h1 {
@@ -30,6 +34,10 @@ h1 {
     margin-top: 60px;
     grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     gap: 40px 32px;
+}
+
+.home-sections h2 {
+    text-align: center;
 }
 
 .tagline {
