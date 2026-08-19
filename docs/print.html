@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "coal";
-            window.path_to_searchindex_js = "searchindex-8df0482f.js";
+            window.path_to_searchindex_js = "searchindex-2270d673.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-8482b96d.js"></script>
+        <script src="toc-fe5365e3.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -295,6 +295,15 @@
 In the future a better implementation will include the smart features that <a href="https://zed.dev">Zed</a> somehow achieves.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="the-file-sidebar-1"><a href="#the-file-sidebar-1" class="header">The File Sidebar</a></h1>
+<h2 id="the-file-sidebar"><a class="header" href="#the-file-sidebar">The File Sidebar</a></h2>
+<p>This is quite a hidden feature, because there is no prominent button in the UI for toggling it on. You can toggle it by pressing <code>Command/Ctrl+B</code> or selecting <code>view: toggle sidebar</code> in the command palette or menu.</p>
+<p>The file sidebar has been recently added as a stable feature, and it displays the files and folders in the current project(if any open). You can click on a file to open it in the editor, or click on a folder to expand it and see the stuff inside.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Symlinks are currently shown with a link icon and may not be opened for stability reasons. That feature might be added in the future.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="the-command-palette"><a class="header" href="#the-command-palette">The Command Palette</a></h1>
 <p>The Command Palette is a palette that shows lots of commands! Here is a list of all of them, along with whatever they do.</p>
 <h2 id="file-new"><a class="header" href="#file-new"><code>file: new</code></a></h2>
@@ -335,6 +344,10 @@ In the future a better implementation will include the smart features that <a hr
 <p>Switches to the compose mode.</p>
 <h2 id="jereide-open-settings"><a class="header" href="#jereide-open-settings"><code>jereide: open settings</code></a></h2>
 <p>Opens settings.toml in a new tab. Also invokable by App Menu or <code>Cmd/Ctrl+,</code>.</p>
+<h2 id="jereide-open-docs"><a class="header" href="#jereide-open-docs"><code>jereide: open docs</code></a></h2>
+<p>Opens the docs in the default browser.</p>
+<h2 id="jereide-view-log"><a class="header" href="#jereide-view-log"><code>jereide: view log</code></a></h2>
+<p>This opens the read-only logs in a new editor tab.</p>
 <h2 id="jereide-toggle-fullscreen"><a class="header" href="#jereide-toggle-fullscreen"><code>jereide: toggle fullscreen</code></a></h2>
 <p>Toggles fullscreen, literally.</p>
 <h2 id="jereide-quit"><a class="header" href="#jereide-quit"><code>jereide: quit</code></a></h2>
@@ -348,9 +361,6 @@ In the future a better implementation will include the smart features that <a hr
 <p>Bonus features, easter eggs, experimental features, legacy debug widgets, and more!</p>
 <h2 id="the-widget-palette"><a class="header" href="#the-widget-palette">The Widget Palette</a></h2>
 <p>Press <code>Command/Ctrl+Shift+W</code> to open the Widget Palette. It was the foundation of the Find&amp;Replace dialog you see right now. It is kept because it… looks nice!</p>
-<h2 id="the-sidebar"><a class="header" href="#the-sidebar">The Sidebar</a></h2>
-<p>Quite a hidden feature, there is no prominent button in the UI for toggling it on. You can toggle it by pressing <code>Command/Ctrl+B</code> or selecting <code>view: toggle sidebar</code> in the command palette.</p>
-<p>A recent commit just added a new cool feature: The sidebar now displays all the files in the current project! Still experimental though, and I can’t open files with it.</p>
 <h2 id="the-user-menu"><a class="header" href="#the-user-menu">The User Menu</a></h2>
 <p>A dropdown appears if you click the round avatar button in the far right of the title bar. It says “Username” and “Star us on GitHub”. Click the second one, star me! The Username button is not functional.</p>
 <div style="break-before: page; page-break-before: always;"></div>
