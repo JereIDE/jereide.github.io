@@ -227,9 +227,18 @@ function renderRelease(release, index) {
 // --- Main ---
 
 fetch("https://api.github.com/repos/JereIDE/JereIDE/releases")
-  .then((res) => res.json())
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error(`GitHub API request failed (${res.status})`);
+    }
+    return res.json();
+  })
   .then((releases) => {
-    if (!Array.isArray(releases) || releases.length === 0) {
+    if (!Array.isArray(releases)) {
+      throw new Error("Unexpected releases response");
+    }
+
+    if (releases.length === 0) {
       releasesList.innerHTML = '<p class="loading-text">No releases found.</p>';
       return;
     }

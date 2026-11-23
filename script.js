@@ -4,8 +4,19 @@ const starsCount = document.getElementById("stars-count");
 const commitTime = document.getElementById("commit-time");
 const versionsCount = document.getElementById("versions-count");
 
+function fetchGitHub(url) {
+  return fetch(url).then((res) => {
+    if (!res.ok) {
+      throw new Error(`GitHub API request failed (${res.status})`);
+    }
+    return res.json();
+  });
+}
+
 function timeAgo(date) {
-  const seconds = Math.floor((new Date() - new Date(date)) / 1000);
+  const time = new Date(date).getTime();
+  if (Number.isNaN(time)) return "-";
+  const seconds = Math.floor((Date.now() - time) / 1000);
   const intervals = [
     { label: "yr", seconds: 31536000 },
     { label: "mo", seconds: 2592000 },
@@ -23,9 +34,11 @@ function timeAgo(date) {
   return "just now";
 }
 
-fetch("https://api.github.com/repos/JereIDE/JereIDE/releases/latest")
-  .then((res) => res.json())
+fetchGitHub("https://api.github.com/repos/JereIDE/JereIDE/releases/latest")
   .then((data) => {
+    if (!data || typeof data.tag_name !== "string") {
+      throw new Error("Unexpected release response");
+    }
     const tag = data.tag_name;
     const version = `v${tag.replace(/^v/i, "")}`;
     downloadLabel.textContent = `${version} · macOS 12+ · Windows 10+`;
@@ -36,45 +49,30 @@ fetch("https://api.github.com/repos/JereIDE/JereIDE/releases/latest")
   });
 
 // Fetch repo data for stars and last commit
-fetch("https://api.github.com/repos/JereIDE/JereIDE")
-  .then((res) => res.json())
+fetchGitHub("https://api.github.com/repos/JereIDE/JereIDE")
   .then((repoData) => {
-    const stars = repoData.stargazers_count;
+    if (!repoData || !Number.isFinite(repoData.stargazers_count)) {
+      throw new Error("Unexpected repository response");
+    }
 
-    // Animate the star count from 0 to the actual number
-    let current = 0;
-    const target = stars;
-    const steps = target > 0 ? target : 1;
-    const increment = target > 100 ? Math.ceil(target / 50) : 1;
-    const duration = 1500;
-    const stepTime = Math.floor(
-      duration / (Math.min(target, steps) / increment),
-    );
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      starsCount.textContent = current;
-    }, stepTime);
-
-    // Show time since last commit
+    animateCount(starsCount, repoData.stargazers_count);
     commitTime.textContent = timeAgo(repoData.pushed_at);
   })
   .catch(() => {
-    starsCount.textContent = "0";
+    starsCount.textContent = "-";
     commitTime.textContent = "-";
-    versionsCount.textContent = "0";
   });
 
 function animateCount(el, target) {
+  if (!Number.isFinite(target) || target <= 0) {
+    el.textContent = "0";
+    return;
+  }
+
   let current = 0;
-  const steps = target > 0 ? target : 1;
   const increment = target > 100 ? Math.ceil(target / 50) : 1;
   const duration = 1500;
-  const stepTime = Math.floor(duration / (Math.min(target, steps) / increment));
+  const stepTime = Math.max(16, Math.floor(duration / (target / increment)));
 
   const timer = setInterval(() => {
     current += increment;
@@ -87,15 +85,15 @@ function animateCount(el, target) {
 }
 
 // Fetch release count for "Versions Released"
-fetch("https://api.github.com/repos/JereIDE/JereIDE/releases")
-  .then((res) => res.json())
+fetchGitHub("https://api.github.com/repos/JereIDE/JereIDE/releases")
   .then((releases) => {
-    if (Array.isArray(releases)) {
-      animateCount(versionsCount, releases.length);
+    if (!Array.isArray(releases)) {
+      throw new Error("Unexpected releases response");
     }
+    animateCount(versionsCount, releases.length);
   })
   .catch(() => {
-    versionsCount.textContent = "0";
+    versionsCount.textContent = "-";
   });
 
 window.addEventListener(
