@@ -177,6 +177,43 @@ h1 {
     text-align: center;
 }
 
+/* Scroll-driven growing screenshot */
+.screenshot {
+    height: 170vh;
+    background: #fafafa;
+}
+
+.screenshot-sticky {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 100vh;
+    height: 100svh;
+    padding: 0 24px 13vh;
+    padding: 0 24px 13svh;
+    overflow: hidden;
+}
+
+.screenshot-img {
+    display: block;
+    width: min(88vw, 1600px);
+    width: min(88vw, 1600px, 110svh);
+    height: auto;
+    border-radius: 16px;
+    transform: translateY(var(--screenshot-rise, 0px))
+        scale(var(--screenshot-scale, 1));
+    transform-origin: center bottom;
+    opacity: var(--screenshot-opacity, 1);
+    will-change: transform, opacity;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.06),
+        0 1px 2px rgba(0, 0, 0, 0.08),
+        0 24px 60px -12px rgba(0, 0, 0, 0.28);
+}
+
 .stats {
     display: flex;
     justify-content: center;

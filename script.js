@@ -116,3 +116,50 @@ window.addEventListener(
   },
   { passive: true },
 );
+
+// Grow the screenshot as the user scrolls through its section
+const screenshotSection = document.querySelector(".screenshot");
+const screenshotImg = document.querySelector(".screenshot-img");
+
+if (screenshotSection && screenshotImg) {
+  const sticky = screenshotSection.querySelector(".screenshot-sticky");
+  let ticking = false;
+
+  const updateScreenshotScale = () => {
+    ticking = false;
+    const rect = screenshotSection.getBoundingClientRect();
+    const travel = rect.height - sticky.offsetHeight;
+    const progress =
+      travel > 0 ? Math.min(Math.max(-rect.top / travel, 0), 1) : 0;
+    const eased = progress * progress * (3 - 2 * progress);
+    screenshotImg.style.setProperty(
+      "--screenshot-scale",
+      (1 + eased * 0.6).toFixed(3),
+    );
+    screenshotImg.style.setProperty(
+      "--screenshot-rise",
+      `${((1 - eased) * 32).toFixed(1)}px`,
+    );
+
+    // Fade out once 15% of the photo is hidden above the viewport,
+    // and be fully gone when only the bottom 10% is still visible.
+    const imgRect = screenshotImg.getBoundingClientRect();
+    const covered = Math.min(Math.max(-imgRect.top / imgRect.height, 0), 1);
+    const fade = Math.min(Math.max((covered - 0.15) / (0.9 - 0.15), 0), 1);
+    screenshotImg.style.setProperty(
+      "--screenshot-opacity",
+      (1 - fade).toFixed(3),
+    );
+  };
+
+  const requestScreenshotUpdate = () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateScreenshotScale);
+    }
+  };
+
+  updateScreenshotScale();
+  window.addEventListener("scroll", requestScreenshotUpdate, { passive: true });
+  window.addEventListener("resize", requestScreenshotUpdate, { passive: true });
+}
